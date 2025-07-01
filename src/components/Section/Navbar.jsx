@@ -42,7 +42,8 @@ const Navbar = () => {
           {/* <span className="text-lg ml-1">Time to Program</span> */}
         </motion.div>
 
-        <div className="flex items-center space-x-4">
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center space-x-8">
           {navItems.map((item) => (
             <motion.button
               key={item}
@@ -71,27 +72,40 @@ const Navbar = () => {
           >
             {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
           </motion.button>
-          <motion.button whileHover={{scale:1.05}} whileTap={{scale:0.95}} onClick={()=>setIsMenuOpen(!isMenuOpen)}
-            className={`p-2 rounded full transition-colors ${isDarkMode ?
-              "text-gray-400 hover:text-amber-600 hover:bg-gray-100"
-              :
-              "text-gray-600 hover:text-gray-900 hover:bg-blue-100"
-            }`}>
-              {isMenuOpen ? <IoMdClose size={20} /> : <IoMenu size={20} />}
-          </motion.button>
-        </div>
+             </div>
+  
 
-        </div>
+      {/* Mobile Menu Button */}
+      <div className='md:hidden flex items-center space-x-4'>
+        <motion.button
+        whileHover={{scale:1.05}}
+        whileTap={{scale:0.95}}
+        onClick={()=>toggleDarkMode(isDarkMode ? "light" : "dark")}
+        className={`p-2 rounded-full transition-colors
+        ${isDarkMode ? "text-gray-4000 hover:text-white hover:bg-gray-800":"text-gray-600 hover:text-gray900 hover:bg-gray-200"}`}>
+          {isDarkMode ? <Sun size={18} /> :<Moon  size={18} />}
+        </motion.button>
+          
+        <motion.button
+            whileHover={{scale:1.05}}
+        whileTap={{scale:0.95}}
+        onClick={()=>setIsMenuOpen(!isMenuOpen)}
+        className={`p-2 rounded-full transition-colors
+        ${isDarkMode ? "text-gray-4000 hover:text-white hover:bg-gray-800":"text-gray-600 hover:text-gray900 hover:bg-gray-200"}`}>
+          {isMenuOpen ? <IoMdClose size={18} /> :< IoMenu size={18} />}
+        </motion.button>
+      </div>
 
+    </div>
         {/* Mobile Menu */}
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
             initial={{opacity:0, y:-20}}
             animate={{opacity:1, y:0}}
-            exit={{opacity:0,y:-20}}
+            exit={{opacity:0, y:-20}}
             className={`md:hidden mt-4 rounded-lg ${
-              isDarkMode? "bg-gray-900" : "bg-white"
+              isDarkMode ? "bg-gray-900 text-white" : "bg-white"
             } border ${isDarkMode ? "border-gray-800":"border-gray-200"}`}>
 
             {["Home","Skills","Work","About","Contact"].map((item)=>(
@@ -99,9 +113,9 @@ const Navbar = () => {
               key={item}
               whileHover={{x:5}}
               onClick={()=>scrollToSection(item.toLowerCase())}
-              className={`block w-full text-left py-2 text-sm uppercase tracking-wider transition-colors
+              className={`block w-full  text-left px-2 py-2 text-sm uppercase tracking-wider transition-colors
                 ${
-              isDarkMode ? "bg-gray-900" : "bg-white"
+              isDarkMode ? "text-gray-400 hover:text-white" : "text-gray-600 hover:text-gray-900"
             }`}>
           {item}
           </motion.button>
@@ -109,6 +123,7 @@ const Navbar = () => {
             </motion.div>
           )}
         </AnimatePresence>
+        
     </motion.nav>
   );
 };
