@@ -1,15 +1,15 @@
 import React from 'react'
 import {ThemeProvider} from "./context/ThemeContext"
 import Navbar from './components/Section/Navbar'
-import Home from './components/Section/Home'
+import Hero from './components/Section/Hero'
 
 const App = () => {
   return (
    <>
     <ThemeProvider>
-        <div>
+        <div className=''>
           <Navbar/>
-          <Home/>
+          <Hero/>
         </div>
 
     </ThemeProvider>

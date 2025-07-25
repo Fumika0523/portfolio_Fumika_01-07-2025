@@ -26,20 +26,22 @@ const Navbar = () => {
       style={{ opacity: 1 }}
       className={`fixed top-0 w-full z-50 px-6 py-4 ${
         isDarkMode ? "bg-gray-950/80" : "bg-gray-50/80"
-      
       } backdrop-blur-md border-b ${
         isDarkMode ? "border-gray-800" : "border-gray-200"
       }`}
     >
+
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <motion.div whileHover={{ scale: 1.05 }} className="flex items-center space-x-2">
-          {/* <Code2 size={24} className="text-blue-500" /> */}
-          <img src={logo} alt="" className={`w-35 h-8  ${
-                isDarkMode
-                  ? "bg-gray-100 border-amber-50 rounded-2xl"
-                  : ""
-              }`} />
-          {/* <span className="text-lg ml-1">Time to Program</span> */}
+            <motion.div
+          whileHover={{ y: -2 }}
+          transition={{ duration: 0.3 }}
+          className="inline-flex items-center space-x-2 p-3  transform transition-transform"
+        >
+          <img src={logo} alt="Logo" 
+          className={`w-30 rounded-md h-8 ${
+        isDarkMode ? "bg-blue-200" : "bg-gray-50/80"
+      } `}
+       />
         </motion.div>
 
         {/* Desktop Navigation */}
@@ -60,11 +62,12 @@ const Navbar = () => {
             </motion.button>
           ))}
           <motion.button
+            type="button"
             aria-label="Toggle Dark Mode"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => toggleDarkMode(isDarkMode ? "light" : "dark")}
-            className={`p-2 rounded-full transition-colors ${
+            className={`p-2 rounded-full cursor-pointer transition-colors ${
               isDarkMode
                 ? "text-gray-400 hover:text-amber-600 hover:bg-gray-100"
                 : "text-gray-600 hover:text-gray-900 hover:bg-blue-100"
@@ -72,7 +75,7 @@ const Navbar = () => {
           >
             {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
           </motion.button>
-             </div>
+        </div>
   
 
       {/* Mobile Menu Button */}
@@ -82,16 +85,18 @@ const Navbar = () => {
         whileTap={{scale:0.95}}
         onClick={()=>toggleDarkMode(isDarkMode ? "light" : "dark")}
         className={`p-2 rounded-full transition-colors
-        ${isDarkMode ? "text-gray-4000 hover:text-white hover:bg-gray-800":"text-gray-600 hover:text-gray900 hover:bg-gray-200"}`}>
+        ${isDarkMode
+          ? "text-gray-400 hover:text-amber-600 hover:bg-gray-100"
+          : "text-gray-600 hover:text-gray-900 hover:bg-blue-100"}`}>
           {isDarkMode ? <Sun size={18} /> :<Moon  size={18} />}
         </motion.button>
           
         <motion.button
-            whileHover={{scale:1.05}}
+        whileHover={{scale:1.05}}
         whileTap={{scale:0.95}}
         onClick={()=>setIsMenuOpen(!isMenuOpen)}
         className={`p-2 rounded-full transition-colors
-        ${isDarkMode ? "text-gray-4000 hover:text-white hover:bg-gray-800":"text-gray-600 hover:text-gray900 hover:bg-gray-200"}`}>
+        ${isDarkMode ? "text-gray-400 hover:text-white hover:bg-gray-800":"text-gray-600 hover:text-gray-900 hover:bg-gray-200"}`}>
           {isMenuOpen ? <IoMdClose size={18} /> :< IoMenu size={18} />}
         </motion.button>
       </div>
