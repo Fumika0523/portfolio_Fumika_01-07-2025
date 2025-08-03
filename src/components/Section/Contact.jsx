@@ -86,7 +86,10 @@ const handleChange = (e) => {
   ];
 
   const { isDarkMode} = useTheme("")
-  
+        const styleBg = isDarkMode
+        ? "bg-gradient-to-br text-gray-200 from-[#e86b80]  to-pink-700/80"
+        :
+        "bg-gradient-to-br text-gray-100 from-pink-400/60  to-[#e86b80]"
   return (
     <section id="contact" className={` section-padding ${
       isDarkMode? "bg-gray-950 text-white":"bg-gray-50 text-gray-900"
@@ -118,7 +121,7 @@ const handleChange = (e) => {
           >
             <div className="flex items-center mb-8">
               {/* <div className="w-12 h-12 rounded-full bg-gradient-to-br from-pink-200 to-pink-400 dark:from-[#e86b80] dark:to-pink-900 text-white flex items-center justify-center shadow-md mr-4"> */}
-              <div className={`w-12 h-12 rounded-full bg-gradient-to-br  flex items-center justify-center shadow-md mr-4  ${isDarkMode ? "text-gray-300 from-pink-300  to-pink-700" : "text-gray-100 from-pink-400/60  to-[#e86b80]"}`}>
+              <div className={`w-12 h-12 rounded-full bg-gradient-to-br  flex items-center justify-center shadow-md mr-4  ${styleBg}`}>
                 <FiMail size={20} />
               </div>
               <h3 className={`text-2xl font-bold ${isDarkMode ? "text-gray-300" : "text-gray-700"}`}>
@@ -134,8 +137,8 @@ const handleChange = (e) => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`flex items-start   p-5 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border
-                    ${ isDarkMode ?"border-gray-700 group bg-gray-900":"border-gray-100 bg-white"}`}
+                  className={`flex items-start p-5 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border
+                    ${ isDarkMode ?"border-gray-800 group bg-[#070c1b]":"border-gray-100 bg-white"}`}
                 >
                  
                 <div className={`flex-shrink-0 h-12 w-12 rounded-xl mr-2
@@ -218,15 +221,17 @@ const handleChange = (e) => {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="md:col-span-3"
           >
-            <div className={`${isDarkMode? "bg-gray-800 border-gray-700 " : "   bg-white border-gray-100"} rounded-2xl shadow-xl p-8 border  relative overflow-hidden`}>
+            <div className={`  ${ isDarkMode ?"border-pink-100/20 group bg-[#070c1b]":"border-gray-100 bg-white"}
+             rounded-2xl shadow-xl p-8 border  relative overflow-hidden`}>
+              
               {/* Decorative elements */}
               <div className={`absolute -top-24 -right-24 w-48 h-48rounded-full blur-3xl ${isDarkMode? " bg-blue-100/30 ":"bg-blue-900/20"}`}></div>
-              <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-blue-100/30 dark:bg-blue-900/20 rounded-full blur-3xl"></div>
+              <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-blue-100/30 dark:bg-blue-900/20 rounded-full blur-3xl border-4 border-amber-500"></div>
               
               <div className="relative">
                 <div className="flex items-center mb-6">
-                  <div className={`w-12 h-12 rounded-full bg-gradient-to-br flex items-center justify-center shadow-md mr-4 border-2 
-                    ${isDarkMode? "from-pink-400 to-pink-600 border-gray-800" : "to-pink-600 from-pink-500   text-white border-gray-100 "}`}>
+                  <div className={`w-12 h-12 rounded-full bg-gradient-to-br flex items-center justify-center shadow-md mr-4 
+                    ${styleBg}`}>
                     <FiSend size={20} />
                   </div>
                   <div>
@@ -239,42 +244,12 @@ const handleChange = (e) => {
                   </div>
                 </div>
                 
-                {submitStatus === "success" && (
-                  <motion.div 
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className={`mb-8 p-4 dark: border border-green-200 dark:border-green-800/50 rounded-xl text-green-800 dark:text-green-200 flex items-center ${isDarkMode ? "bg-green-900/30" : " bg-green-50"}`}
-                  >
-                    <div className="w-8 h-8 rounded-full bg-green-100 dark:bg-green-800 flex items-center justify-center mr-3 text-green-600 dark:text-green-300">
-                      <FiCheck size={18} />
-                    </div>
-                    <div>
-                      <p className="font-medium">Your message has been sent successfully!</p>
-                      <p className="text-sm text-green-600 dark:text-green-400 mt-1">I'll get back to you soon.</p>
-                    </div>
-                  </motion.div>
-                )}
-                
-                {submitStatus === "error" && (
-                  <motion.div 
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="mb-8 p-4 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800/50 rounded-xl text-red-800 dark:text-red-200 flex items-center"
-                  >
-                    <div className="w-8 h-8 rounded-full bg-red-100 dark:bg-red-800 flex items-center justify-center mr-3 text-red-600 dark:text-red-300">
-                      <FiAlertCircle size={18} />
-                    </div>
-                    <div>
-                      <p className="font-medium">Failed to send message</p>
-                      <p className="text-sm text-red-600 dark:text-red-400 mt-1">{errorMessage || "There was an error sending your message. Please try again later."}</p>
-                    </div>
-                  </motion.div>
-                )}
+         
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      <label htmlFor="name" className={`block text-sm font-medium  mb-2 ${isDarkMode ? "text-gray-300": "text-gray-600 " }`}>
                         Your Name
                       </label>
                       <input
@@ -284,12 +259,13 @@ const handleChange = (e) => {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-colors"
+                        className={`w-full px-4 py-3 border rounded-xl  brounded-xl focus:ring-2 focus:border-blue-500 focus:ring-blue-500 transition-colors
+                        ${ isDarkMode ? "border-pink-100/20 bg-gray-900/40 text-white" :" border-gray-300 "}`}
                         placeholder="John Doe"
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      <label htmlFor="email" className={`block text-sm font-medium  mb-2 ${isDarkMode ? "text-gray-300": "text-gray-600 " }`}>
                         Your Email
                       </label>
                       <input
@@ -299,14 +275,15 @@ const handleChange = (e) => {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-colors"
+                         className={`w-full px-4 py-3 border rounded-xl  brounded-xl focus:ring-2 focus:border-blue-500 focus:ring-blue-500 transition-colors
+                       ${ isDarkMode ? "border-pink-100/20 bg-gray-900/40 text-white" :" border-gray-300 "}`}
                         placeholder="john@example.com"
                       />
                     </div>
                   </div>
                   
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    <label htmlFor="subject" className={`block text-sm font-medium  mb-2 ${isDarkMode ? "text-gray-300": "text-gray-600 " }`}>
                       Subject
                     </label>
                     <input
@@ -316,13 +293,14 @@ const handleChange = (e) => {
                       value={formData.subject}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-colors"
+                       className={`w-full px-4 py-3 border rounded-xl  brounded-xl focus:ring-2 focus:border-blue-500 focus:ring-blue-500 transition-colors
+                        ${ isDarkMode ? "border-pink-100/20 bg-gray-900/40 text-white" :" border-gray-300 "}`}
                       placeholder="Project Inquiry"
                     />
                   </div>
                   
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    <label htmlFor="message" className={`block text-sm font-medium  mb-2 ${isDarkMode ? "text-gray-300": "text-gray-600 " }`}>
                       Message
                     </label>
                     <textarea
@@ -332,7 +310,8 @@ const handleChange = (e) => {
                       onChange={handleChange}
                       required
                       rows={5}
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white transition-colors"
+                       className={`w-full px-4 py-3 border rounded-xl  brounded-xl focus:ring-2 focus:border-blue-500 focus:ring-blue-500 transition-colors
+                        ${ isDarkMode ? "border-pink-100/20 bg-gray-900/40 text-white"  :" border-gray-300 "}`}
                       placeholder="Your message here..."
                     ></textarea>
                   </div>
@@ -341,8 +320,8 @@ const handleChange = (e) => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className={`px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white rounded-xl shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-300 flex items-center justify-center
-                        ${isSubmitting ? "opacity-70 cursor-not-allowed" : ""}`}
+                      className={`px-8 py-3 bg-gradient-to-r  rounded-xl shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-300 flex items-center justify-center
+                        ${isSubmitting ? "opacity-70 cursor-not-allowed" : "", styleBg}`}
                     >
                       {isSubmitting ? (
                         <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

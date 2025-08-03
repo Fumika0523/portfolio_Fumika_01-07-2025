@@ -39,7 +39,7 @@ const Navbar = () => {
         >
           <img src={logo} alt="Logo" 
           className={`w-30 rounded-md h-8 ${
-        isDarkMode ? "bg-blue-200" : "bg-gray-50/80"
+        isDarkMode ? "bg-pink-100" : "bg-gray-50/80"
       } `}
        />
         </motion.div>
@@ -54,7 +54,7 @@ const Navbar = () => {
               onClick={() => scrollToSection(item.toLowerCase())}
               className={`text-sm uppercase tracking-wider transition-colors ${
                 isDarkMode
-                  ? "text-gray-400 hover:text-white"
+                  ? "text-[#b78890] hover:text-white"
                   : "text-gray-600 hover:text-gray-900"
               }`}
             >
@@ -69,8 +69,8 @@ const Navbar = () => {
             onClick={() => toggleDarkMode(isDarkMode ? "light" : "dark")}
             className={`p-2 rounded-full cursor-pointer transition-colors ${
               isDarkMode
-                ? "text-gray-400 hover:text-amber-600 hover:bg-gray-100"
-                : "text-gray-600 hover:text-gray-900 hover:bg-blue-100"
+                ? "text-amber-400 hover:text-amber-600 hover:bg-gray-100"
+                : "text-gray-600 hover:text-gray-900 hover:bg-pink-100"
             }`}
           >
             {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
@@ -86,7 +86,7 @@ const Navbar = () => {
         onClick={()=>toggleDarkMode(isDarkMode ? "light" : "dark")}
         className={`p-2 rounded-full transition-colors
         ${isDarkMode
-          ? "text-gray-400 hover:text-amber-600 hover:bg-gray-100"
+          ? "text-gray-400 hover:text-amber-600 hover:bg-pink-100"
           : "text-gray-600 hover:text-gray-900 hover:bg-blue-100"}`}>
           {isDarkMode ? <Sun size={18} /> :<Moon  size={18} />}
         </motion.button>
@@ -110,17 +110,17 @@ const Navbar = () => {
             animate={{opacity:1, y:0}}
             exit={{opacity:0, y:-20}}
             className={`md:hidden mt-4 rounded-lg ${
-              isDarkMode ? "bg-gray-900 text-white" : "bg-white"
-            } border ${isDarkMode ? "border-gray-800":"border-gray-200"}`}>
+              isDarkMode ? "bg-gray-950 text-white" : "bg-white"
+            } border ${isDarkMode ? "border-pink-200/20":"border-gray-200"}`}>
 
             {["Home","Skills","Work","About","Contact"].map((item)=>(
               <motion.button
               key={item}
               whileHover={{x:5}}
               onClick={()=>scrollToSection(item.toLowerCase())}
-              className={`block w-full  text-left px-2 py-2 text-sm uppercase tracking-wider transition-colors
+              className={`block w-full ml-2  text-left px-2 py-2 text-sm uppercase tracking-wider transition-colors
                 ${
-              isDarkMode ? "text-gray-400 hover:text-white" : "text-gray-600 hover:text-gray-900"
+              isDarkMode ? "text-[#b78890] hover:text-white" : "text-gray-600 hover:text-gray-900"
             }`}>
           {item}
           </motion.button>

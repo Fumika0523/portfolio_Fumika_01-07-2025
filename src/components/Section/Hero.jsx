@@ -44,6 +44,11 @@ const Hero = () => {
     }
 
 
+      const styleBg = isDarkMode
+        ? "bg-gradient-to-br from-[#e86b80]  to-pink-700/80 text-gray-200"
+        : "bg-gradient-to-br from-pink-400/60 to-[#e86b80] text-white";
+
+
   return (
     <div className={`min-h-screen transition-all duration-500 ${
       isDarkMode? "bg-gray-950 text-white":"bg-gray-50 text-gray-900"
@@ -119,7 +124,7 @@ const Hero = () => {
               {/* Content - Mobile */}
               <motion.div
               variants={textVariants}
-              className={`text-sm uppercase tracking-widest ${isDarkMode ? "text-gray-500" : "text-gray-600"} mb-4`}
+              className={`text-sm uppercase tracking-widest ${isDarkMode ? "text-gray-500" : "text-gray-300" } mb-4`}
               >
                 Full Stack Developer
               </motion.div>
@@ -142,25 +147,25 @@ const Hero = () => {
 
               <motion.p
               variants={itemVariants}
-              className={`text-base md:text-lg ${isDarkMode ? "text-gray-400" : "text-gray-600"} mb-8 max-w-xl mx-auto font-light leading-relaxed`}>
+              className={`text-center md:text-lg mb-5 ${isDarkMode ? "text-gray-400" : "text-gray-400" }`}>
               I'm a junior full-stack developer currently building my skills in modern web development. I enjoy working with technologies like React, Node.js, and MongoDB, and I’m passionate about creating clean, functional, and responsive web applications. While I'm still learning, I'm committed to writing better code every day and building real-world projects that challenge and grow my abilities.
               </motion.p>
 
               {/* CTA Buttons - Mobile */}
               <motion.div variants={itemVariants}
               className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-                <motion.button
-                whileHover={{y:-2}}
-                whileTap={{scale:0.98}}
-                onClick={()=> scrollToSection("work")}
-                className="bg-[#e86b80] hover:bg-[#fe8b9e] text-white px-8 py-3 rounded-full text-sm uppercase tracking-wider font-medium transition-all duration-300">
-                  View Work
-                </motion.button>
+                  <motion.button
+          whileHover={{ y: -2 }}
+          whileTap={{ scale: 0.98 }}
+          className={`w-40 h-12 rounded-full flex items-center justify-center shadow-md ${styleBg}`}>
+          View Work
+        </motion.button>
+
                 <motion.button
                 whileHover={{y:-2}}
                 whileTap={{scale:0.98}}
                 onClick={()=> scrollToSection("contact")}
-                className={`border ${isDarkMode? "border-gray-700 hover:border-gray-600 text-gray-300" : "border-gray-300 hover:border-gray-400 text-gray-700"} px-8 py-3 rounded-full text-sm uppercase tracking-wider font-medium transition-all duration-300`}>
+                className={`border ${isDarkMode? "border border-[#b78890] hover:border-pink-200 text-pink-100/70" : "border-gray-300 hover:border-gray-400 text-gray-700"} px-8 py-3 rounded-full text-sm uppercase tracking-wider font-medium transition-all duration-300`}>
                   Get in Touch
                 </motion.button>
               </motion.div>
@@ -190,37 +195,32 @@ const Hero = () => {
               </motion.div>
 
 
-          {/* Tech Stack - Movile */}
+          {/* Tech Stack - Mobile */}
           <motion.div
               variants={itemVariants}
-              className="border-amber-200 border-8 flex justify-center items-cenyer space-x-6 text-xs uppercase tracking-widest flex-wrap">
-                <span className={isDarkMode? "text-gray-600" : "text-gray-500"}>
-                  React
+              className=" flex justify-center items-cenyer space-x-6 text-xs uppercase tracking-widest flex-wrap">
+                <span className={isDarkMode? "text-[#b78890]"  : "text-gray-500"}>
+                  Frontend
                 </span>
                 <span className={isDarkMode? "text-gray-700" : "text-gray-400"}>
                   .
                 </span>
-                <span className={isDarkMode? "text-gray-600" : "text-gray-500"}>
-                  Node.js
+                        <span className={isDarkMode? "text-[#b78890]"  : "text-gray-500"}>
+                  Backend
                 </span>
                 <span className={isDarkMode? "text-gray-700" : "text-gray-400"}>
                   .
                 </span>
-                <span className={isDarkMode? "text-gray-600" : "text-gray-500"}>
-                  TypeScript
+                <span className={isDarkMode? "text-[#b78890]"  : "text-gray-500"}>
+                  Freelance
                 </span>
-                <span className={isDarkMode? "text-gray-700" : "text-gray-400"}>
-                  .
-                </span>
-                <span className={isDarkMode? "text-gray-600" : "text-gray-500"}>
-                  MongoDB
-                </span>
+
           </motion.div>
         </motion.div>
         </div>
 
         {/* DeskTop Layout - Split */}
-        <div className="hidden lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center  mx-10 border-4 border-amber-500">
+        <div className="hidden lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center  mx-10">
           {/* Left Column - Content*/}
           <motion.div
           initial="hidden"
@@ -228,8 +228,13 @@ const Hero = () => {
           variants={containerVariants}
           className="text-center">
             <motion.div
-            variants={textVariants}
-              className={`text-lg uppercase tracking-widest ${isDarkMode ? "text-gray-500" : "text-gray-600"} mb-6`}>
+              variants={textVariants}
+              className={`text-lg uppercase tracking-widest mb-6 ${
+                isDarkMode
+                  ? "text-[#e69fab]  "
+                  : "text-gray-600"
+              }`}
+            >
               Full Sack Developer
             </motion.div>
 
@@ -250,19 +255,23 @@ const Hero = () => {
 
             <motion.p
               variants={itemVariants}
-              className={`text-xl  ${isDarkMode ? "text-gray-400" : "text-gray-600"} mb-12 font-light leading-relaxed max-w-lg`}>
+              className={`text-xl  ${isDarkMode ? "text-gray-400" : "text-gray-800" } mb-12 font-light leading-relaxed max-w-lg`}>
               I'm a junior full-stack developer currently building my skills in modern web development. I enjoy working with technologies like React, Node.js, and MongoDB, and I’m passionate about creating clean, functional, and responsive web applications. While I'm still learning, I'm committed to writing better code every day and building real-world projects that challenge and grow my abilities.
             </motion.p>
             {/* CTA Button - DeskTop */}
             <motion.div
-            variants={itemVariants} className="flex justify-center gap-6 mb-8 border-4 border-amber-500">
-              <motion.button whileHover={{y:-2}}
-              whileTap={{scale:0.98}}
-              onClick={()=>scrollToSection("work")}
-              className="bg-pink-500 hover:bg-pink-600 text-white px-8 py-4 rounded-full text-sm uppercase tracking-wider font-medium transition-all duration-300">
-                View Work
-              </motion.button>
-                <motion.button whileHover={{y:-2}}
+            variants={itemVariants} className="flex justify-center gap-6 mb-8 ">
+  
+          <motion.button
+          whileHover={{ y: -2 }}
+          whileTap={{ scale: 0.98 }}
+          className={`w-40 h-12 rounded-full flex items-center justify-center bg-gradient-to-br shadow-md ${isDarkMode
+          ? " from-[#e18191]  to-pink-600 text-gray-200"
+          : "  from-pink-400/60  to-[#e86b80] text-gray-100"}`}>
+          View Work
+        </motion.button>
+
+          <motion.button whileHover={{y:-2}}
               whileTap={{scale:0.98}}
               onClick={()=>scrollToSection("contact")}
               className={`border ${isDarkMode? "border-gray-700 hover:border-gray-300 text-gray-300" : "border-gray-300 hover:border-gray-400 text-gray-700"} px-8 py-4 rounded-full text-sm uppercase tracking-wider font-medium transition-all duration-300`}>
@@ -272,7 +281,7 @@ const Hero = () => {
 
             {/* Social Links - Desktop */}
               <motion.div variants={imageVariants}
-            className="flex space-x-6 mb-12"
+            className="flex items-center justify-center space-x-4 mb-12"
           >
             {[
               { icon: FiGithub, href: "#" },
@@ -305,29 +314,23 @@ const Hero = () => {
             <div className="relative">
               {/* Tech Stack - DeskTop */}
               <motion.div variants={itemVariants}
-              className="flex items-center justify-center space-x-8 text-sm uppcercase tracking-widest absolute -top-30 -left-15 ">
-                <span className={isDarkMode ? "text-gray-600" : "text-gray-500"}>
-                  React
+              className="flex items-center justify-center space-x-8 text-sm uppcercase tracking-widest absolute -top-40  ">
+                <span className={isDarkMode ? "text-pink-200/60" : "text-gray-500"}>
+                  Frontend
                 </span>
-                <span className={isDarkMode ? "text-gray-700" : "text-gray-400"}>
+                <span className={isDarkMode ? "text-pink-200"  : "text-gray-400"}>
                   .
                 </span>
-                <span className={isDarkMode ? "text-gray-600" : "text-gray-500"}>
-                  Node.js
+                <span className={isDarkMode ? "text-pink-200/60"  : "text-gray-500"}>
+                  Beckend
                 </span>
-                <span className={isDarkMode ? "text-gray-700" : "text-gray-400"}>
+                <span className={isDarkMode ? "text-pink-200" : "text-gray-400"}>
                   .
                 </span>
-                <span className={isDarkMode ? "text-gray-600" : "text-gray-500"}>
-                  TypeScript
+                <span className={isDarkMode ? "text-pink-200/60"  : "text-gray-500"}>
+                  Freelance
                 </span>
-                <span className={isDarkMode ? "text-gray-700" : "text-gray-400"}>
-                  .
-                </span>
-                <span className={isDarkMode ? "text-gray-600" : "text-gray-500"}>
-                  MongoDB
-                </span>
-                <span className={isDarkMode ? "text-gray-700" : "text-gray-400"}>
+                <span className={isDarkMode ? "text-pink-200" : "text-gray-400"}>
                   .
                 </span>
               </motion.div>
@@ -342,12 +345,12 @@ const Hero = () => {
               <motion.div 
               animate={{rotate:360}}
               transition={{duration:20, repeat:Infinity, ease:"linear"}}
-              className="absolute -inset-4 rounded-3xl border border-blue-500/20"/>
+              className="absolute -inset-4 rounded-3xl border border-gray-200/30"/>
 
              <motion.div 
             animate={{rotate:-360}}
              transition={{duration:30, repeat:Infinity, ease:"linear"}}
-             className="absolute -inset-8 rounded-3xl border border-purple-600"/>
+             className="absolute -inset-8 rounded-3xl border border-pink-400/80"/>
             </div>
           </motion.div>
         </div>
@@ -360,7 +363,7 @@ const Hero = () => {
         >
           <ArrowDown
           size={20}
-          className={isDarkMode? "text-gray-600": "text-gray-400"}/>
+          className={isDarkMode? "text-orange-300" : "text-gray-400"}/>
         </motion.div>
       </motion.section>
     </div>
