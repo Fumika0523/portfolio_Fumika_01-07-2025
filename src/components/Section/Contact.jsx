@@ -91,7 +91,7 @@ const handleChange = (e) => {
         :
         "bg-gradient-to-br text-gray-100 from-pink-400/60  to-[#e86b80]"
   return (
-    <section id="contact" className={` section-padding ${
+    <section id="contact" className={` border border-blue-800 section-padding ${
       isDarkMode? "bg-gray-950 text-white":"bg-gray-50 text-gray-900"
     }`}>
       <div className="container mx-auto container-padding">
@@ -103,7 +103,7 @@ const handleChange = (e) => {
           className="text-center mb-16"
         >
           <span className={`inline-block px-3 py-1 text-sm font-medium 
-            ${isDarkMode? " text-pink-200 bg-pink-500/40 ":"text-pink-500 bg-pink-100 "}rounded-full mb-4`}>Let's Connect</span>
+            ${isDarkMode? " text-pink-200 bg-pink-500/40 ":"text-pink-500 bg-pink-100 "} rounded-full mb-4`}>Let's Connect</span>
           <h2 className="heading-lg mb-2">Get In Touch</h2>
           <div className="h-1 w-20 bg-[#e86b80] mx-auto"></div>
           <p className={`paragraph  max-w-2xl mx-auto mt-4 ${isDarkMode? "text-gray-400 " : "text-gray-700"}`}>
@@ -320,7 +320,7 @@ const handleChange = (e) => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className={`px-8 py-3 bg-gradient-to-r  rounded-xl shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-300 flex items-center justify-center
+                      className={`px-8 py-3 bg-gradient-to-r  rounded-xl shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 transition-all duration-300 flex items-center justify-center
                         ${isSubmitting ? "opacity-70 cursor-not-allowed" : "", styleBg}`}
                     >
                       {isSubmitting ? (

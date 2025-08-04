@@ -50,7 +50,7 @@ const Hero = () => {
 
 
   return (
-    <div className={`min-h-screen transition-all duration-500 ${
+    <div className={`border border-blue-400 min-h-screen transition-all duration-500 ${
       isDarkMode? "bg-gray-950 text-white":"bg-gray-50 text-gray-900"
     }`}>
       {/* Hero Section */}
@@ -98,6 +98,26 @@ const Hero = () => {
             variants={containerVariants}
             className="text-center"
             >
+                {/* Tech Stack - Mobile */}
+          <motion.div
+              variants={itemVariants}
+              className=" flex justify-center items-cenyer space-x-6 text-xs uppercase tracking-widest flex-wrap pb-20">
+                <span className={isDarkMode? "text-[#b78890]"  : "text-gray-500"}>
+                  Frontend
+                </span>
+                <span className={isDarkMode? "text-gray-700" : "text-gray-400"}>
+                  .
+                </span>
+                        <span className={isDarkMode? "text-[#b78890]"  : "text-gray-500"}>
+                  Backend
+                </span>
+                <span className={isDarkMode? "text-gray-700" : "text-gray-400"}>
+                  .
+                </span>
+                <span className={isDarkMode? "text-[#b78890]"  : "text-gray-500"}>
+                  Freelance
+                </span>
+          </motion.div>
             {/* Profile Image - Mobile */}
             <motion.div variants={imageVariants}
             className="mb-8">
@@ -172,7 +192,7 @@ const Hero = () => {
 
               {/* Social Links - Mobile */}
               <motion.div variants={imageVariants}
-            className="flex justify-center space-x-6 mb-8 border"
+            className="flex justify-center space-x-6 mb-8"
           >
             {[
               { icon: FiGithub, href: "#" },
@@ -195,27 +215,7 @@ const Hero = () => {
               </motion.div>
 
 
-          {/* Tech Stack - Mobile */}
-          <motion.div
-              variants={itemVariants}
-              className=" flex justify-center items-cenyer space-x-6 text-xs uppercase tracking-widest flex-wrap">
-                <span className={isDarkMode? "text-[#b78890]"  : "text-gray-500"}>
-                  Frontend
-                </span>
-                <span className={isDarkMode? "text-gray-700" : "text-gray-400"}>
-                  .
-                </span>
-                        <span className={isDarkMode? "text-[#b78890]"  : "text-gray-500"}>
-                  Backend
-                </span>
-                <span className={isDarkMode? "text-gray-700" : "text-gray-400"}>
-                  .
-                </span>
-                <span className={isDarkMode? "text-[#b78890]"  : "text-gray-500"}>
-                  Freelance
-                </span>
-
-          </motion.div>
+        
         </motion.div>
         </div>
 
@@ -356,15 +356,7 @@ const Hero = () => {
         </div>
     </div>
         
-        {/* Scroll Indicator */}
-        <motion.div animate={{y:[0,8,0]}}
-        transition={{duration:2,repeat:Infinity}}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        >
-          <ArrowDown
-          size={20}
-          className={isDarkMode? "text-orange-300" : "text-gray-400"}/>
-        </motion.div>
+  
       </motion.section>
     </div>
   )
