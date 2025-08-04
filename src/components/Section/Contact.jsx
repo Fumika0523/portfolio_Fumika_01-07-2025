@@ -91,7 +91,7 @@ const handleChange = (e) => {
         :
         "bg-gradient-to-br text-gray-100 from-pink-400/60  to-[#e86b80]"
   return (
-    <section id="contact" className={` border border-blue-800 section-padding ${
+    <section id="contact" className={`pt-8 section-padding ${
       isDarkMode? "bg-gray-950 text-white":"bg-gray-50 text-gray-900"
     }`}>
       <div className="container mx-auto container-padding">
@@ -104,7 +104,7 @@ const handleChange = (e) => {
         >
           <span className={`inline-block px-3 py-1 text-sm font-medium 
             ${isDarkMode? " text-pink-200 bg-pink-500/40 ":"text-pink-500 bg-pink-100 "} rounded-full mb-4`}>Let's Connect</span>
-          <h2 className="heading-lg mb-2">Get In Touch</h2>
+          <h2 className="heading-lg mb-2 text-3xl">Get In Touch</h2>
           <div className="h-1 w-20 bg-[#e86b80] mx-auto"></div>
           <p className={`paragraph  max-w-2xl mx-auto mt-4 ${isDarkMode? "text-gray-400 " : "text-gray-700"}`}>
             I'm always open to new opportunities and projects. Feel free to reach out if you want to collaborate or have any questions.
@@ -137,7 +137,7 @@ const handleChange = (e) => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`flex items-start p-5 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border
+                  className={`flex items-start p-5 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 
                     ${ isDarkMode ?"border-gray-800 group bg-[#070c1b]":"border-gray-100 bg-white"}`}
                 >
                  

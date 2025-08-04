@@ -4,10 +4,9 @@ import { useState, useMemo, useCallback } from "react";
 import { DiVisualstudio } from "react-icons/di";
 import {
   SiHtml5, SiCss3, SiJavascript,
-  SiReact, SiTypescript, SiTailwindcss,
-  SiNodedotjs, SiExpress, SiMongodb,
-  SiPostgresql, SiGithub, 
-  SiPostman
+  SiReact,  SiTailwindcss,
+  SiNodedotjs, SiExpress, SiMongodb, SiGithub, 
+  SiPostman,SiNetlify ,SiRender ,SiBootstrap ,SiMui 
 } from 'react-icons/si';
 
 import {
@@ -38,38 +37,26 @@ const Skill = () => {
           :
           "bg-gradient-to-br text-gray-100 from-pink-400/60  to-[#e86b80]"
 
-    // const skillIcons = {
-    //   "HTML": <SiHtml5 className="w-6 h-6 text-orange-500" />,
-    //   "CSS":<SiCss3 />,
-    // JavaScript: (
-    //   <SiJavascript className="w-6 h-6 text-[#F7DF1E]" />
-    // ), 
-    // React: <SiReact className="w-6 h-6 text-sky-500" />,
-    //   TypeScript: <SiTypescript className="w-6 h-6 text-blue-600" />,
-    //   "Tailwind CSS": <SiTailwindcss className="w-6 h-6 text-teal-400" />,
-    //   "Node.js": <SiNodedotjs className="w-6 h-6 text-green-600" />,
-    //   Express: <SiExpress className="w-6 h-6 text-gray-500" />,
-    //   MongoDB: <SiMongodb className="w-6 h-6 text-green-700" />,
-    //   "Git/GitHub": <SiGithub className="w-6 h-6 text-gray-400" />,
-    //   "VS Code": <DiVisualstudio  className="w-6 h-6 text-blue-400" />,
-    // "POSTMAN": <SiPostman className="w-6 h-6 text-orange-500" />
-    // };
 
     const skillIcons = {
-  HTML: <SiHtml5 className="w-6 h-6" style={{ color: "#E34F26" }} />,
-  CSS: <SiCss3 className="w-6 h-6" style={{ color: "#1572B6" }} />,
-  JavaScript: <SiJavascript className="w-6 h-6" style={{ color: "#F7DF1E" }} />,
-  React: <SiReact className="w-6 h-6" style={{ color: "#61DAFB" }} />,
-  TypeScript: <SiTypescript className="w-6 h-6" style={{ color: "#3178C6" }} />,
-  "Tailwind CSS": <SiTailwindcss className="w-6 h-6" style={{ color: "#06B6D4" }} />,
-  "Node.js": <SiNodedotjs className="w-6 h-6" style={{ color: "#339933" }} />,
+  HTML: <SiHtml5 className="w-8 h-8" style={{ color: "#E34F26" }} />,
+  CSS: <SiCss3 className="w-8 h-8" style={{ color: "#1572B6" }} />,
+  JavaScript: <SiJavascript className="w-8 h-8" style={{ color: "#F7DF1E" }} />,
+  React: <SiReact className="w-8 h-8" style={{ color: "#61DAFB" }} />,
+  "Tailwind CSS": <SiTailwindcss className="w-8 h-8" style={{ color: "#06B6D4" }} />,
+  "Node.js": <SiNodedotjs className="w-8 h-8" style={{ color: "#339933" }} />,
   Express:  <SiExpress
     className={`w-6 h-6 ${isDarkMode ? "text-gray-300" : "text-gray-800"
     }`}/>,
-  MongoDB: <SiMongodb className="w-6 h-6" style={{ color: "#47A248" }} />,
-  "Git/GitHub": <SiGithub className="w-6 h-6" style={{ color: "#181717" }} />,
-  "VS Code": <DiVisualstudio className="w-6 h-6" style={{ color: "#007ACC" }} />,
-  POSTMAN: <SiPostman className="w-6 h-6" style={{ color: "#FF6C37" }} />
+  MongoDB: <SiMongodb className="w-8 h-8" style={{ color: "#47A248" }} />,
+  "Git/GitHub": <SiGithub className="w-8 h-8" style={{ color: "#181717" }} />,
+  "VS Code": <DiVisualstudio className="w-8 h-8" style={{ color: "#007ACC" }} />,
+  POSTMAN: <SiPostman className="w-8 h-8" style={{ color: "#FF6C37" }} />,
+  "Netlify" : <SiNetlify className="w-6 h-6 text-[#00C7B7]" />,
+  Render: <SiRender className="w-6 h-6 text-[#46E3B7]" />,
+  "Bootstrap": <SiBootstrap className="w-6 h-6 text-[#7952B3]" />,
+  "MUI": <SiMui className="w-6 h-6 text-[#007FFF]" />,
+
 };
 
     const skills = [
@@ -77,15 +64,17 @@ const Skill = () => {
        { name: "CSS", category: "frontend" },
       { name: "JavaScript", category: "frontend" },
       { name: "React", category: "frontend" },
-      { name: "TypeScript", category: "frontend" },
       { name: "Tailwind CSS", category: "frontend" },
       { name: "Node.js", category: "backend" },
       { name: "Express", category: "backend" },
       { name: "MongoDB", category: "backend" },
-      { name: "PostgreSQL", category: "backend" },
       { name: "Git/GitHub", category: "tools" },
       { name: "VS Code", category: "tools" },
-      {name:"POSTMAN", category:"tools"}
+      {name:"POSTMAN", category:"tools"},
+      {name:"Netlify",category:"tools"},
+      {name:"Render",category:"tools"},
+      {name:"MUI",category:"frontend"},
+    {name:"Bootstrap",category:"frontend"},
     ];
 
       const [activeCategory, setActiveCategory] = useState("all");
@@ -98,9 +87,7 @@ const Skill = () => {
       ),
     [activeCategory]
   );
-
-
-    
+   
       const containerVariants = {
         hidden: {},
         visible: {
@@ -134,14 +121,13 @@ const Skill = () => {
   // Detect if it’s mobile to limit animations
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 
-
    return (
     
     <>
     <section
     id="skill" className={` section-padding ${
       isDarkMode? "bg-gray-950 text-white":"bg-gray-50 text-gray-900"
-    } border-amber-800 border py-8`}>
+    }  py-8`}>
       <div className='text-5xl font-bold text-center mb-8'>My Developer Toolkit</div>
 
       {/* Background overlay para mejor contraste - REMOVIDO para mantener background consistente */}
@@ -149,12 +135,12 @@ const Skill = () => {
 
      <div className="container mx-auto max-w-6xl relative z-10">
 
-        {/* Filtros de categorías mejorados */}
+        {/* category filters */}
         <motion.div
           className="flex flex-wrap justify-center gap-3 mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.9 }}
           viewport={{ once: true }}
         >
           {categories.map((category) => (
@@ -162,10 +148,10 @@ const Skill = () => {
               key={category.id}
               onClick={() => handleCategory(category.id)}
               className={`
-        group flex cursor-pointer items-center gap-2 px-6 py-3 rounded-full transition-all duration-300 capitalize font-medium
-        ${activeCategory === category.id
-          ? "bg-gradient-to-br text-gray-200 from-[#efafb9]  to-pink-800/80 shadow-lg shadow-primary/25"
-          : "bg-card/50 border border-gray-400/50 text-muted-foreground hover:bg-pink-400/30 hover:border-pink-400/30 hover:text-white"
+              group flex cursor-pointer items-center gap-2 px-6 py-3 rounded-full transition-all duration-300 capitalize font-medium
+              ${activeCategory === category.id
+                ? "bg-gradient-to-br text-gray-200 from-[#efafb9]  to-pink-800/80 shadow-lg shadow-primary/25"
+                : "bg-card/50 border border-gray-400/50 text-muted-foreground hover:bg-pink-400/30 hover:border-pink-400/30 hover:text-white"
         }
       `}
               whileHover={!isMobile ? { scale: 1.05 } : {}}
@@ -177,9 +163,9 @@ const Skill = () => {
           ))}
         </motion.div>
 
-        {/* Grid de skills */}
+        {/*  skills */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -192,12 +178,12 @@ const Skill = () => {
               className="group relative"
             >
               {/* Card principal */}
-              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-all duration-500 p-6">
+              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm border border-gray-600/50 hover:border-pink-300/30 transition-all duration-500 p-6">
                 {/* Header de la skill */}
-                <div className="flex flex-col items-center text-center gap-4">
+                <div className="flex flex-col items-center text-center">
                   <div className="p-3 rounded-xl group-hover:scale-110 transition-transform duration-300">
                     {skillIcons[skill.name] || (
-                      <Code2 className="w-6 h-6 text-muted-foreground" />
+                      <Code2 className="w-8 h-8 text-muted-foreground" />
                     )}
                   </div>
                   <div>

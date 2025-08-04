@@ -50,7 +50,7 @@ const Hero = () => {
 
 
   return (
-    <div className={`border border-blue-400 min-h-screen transition-all duration-500 ${
+    <div className={`min-h-screen transition-all duration-500 ${
       isDarkMode? "bg-gray-950 text-white":"bg-gray-50 text-gray-900"
     }`}>
       {/* Hero Section */}
