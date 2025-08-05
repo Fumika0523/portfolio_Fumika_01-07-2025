@@ -31,56 +31,7 @@ export const Work = () => {
       category: "fullstack",
       tags: ["React", "Node.js", "MongoDB"],
     },
-    // {
-    //   id: 2,
-    //   title: "Task Management App",
-    //   description: "A task management application with drag-and-drop functionality, user roles, and real-time updates.",
-    //   image: "/images/project2.jpg",
-    //   github: "https://github.com/asma019/task-manager",
-    //   demo: "#",
-    //   category: "web",
-    //   tags: ["React", "Firebase", "Tailwind"],
-    // },
-    // {
-    //   id: 3,
-    //   title: "Weather Forecast App",
-    //   description: "A weather application that provides real-time forecasts based on location with interactive maps.",
-    //   image: "/images/project3.jpg",
-    //   github: "https://github.com/asma019/weather-app",
-    //   demo: "#",
-    //   category: "mobile",
-    //   tags: ["React Native", "API Integration"],
-    // },
-    // {
-    //   id: 4,
-    //   title: "Recipe Finder",
-    //   description: "A recipe finder application allowing users to search recipes by ingredients, dietary restrictions, and more.",
-    //   image: "/images/project4.jpg",
-    //   github: "https://github.com/asma019/recipe-finder",
-    //   demo: "#",
-    //   category: "web",
-    //   tags: ["JavaScript", "API", "CSS"],
-    // },
-    // {
-    //   id: 5,
-    //   title: "Budget Tracker",
-    //   description: "A budget tracking application with expense categorization, visualizations, and financial insights.",
-    //   image: "/images/project5.jpg",
-    //   github: "https://github.com/asma019/budget-tracker",
-    //   demo: "#",
-    //   category: "mobile",
-    //   tags: ["Flutter", "Firebase"],
-    // },
-    // {
-    //   id: 6,
-    //   title: "Portfolio Website",
-    //   description: "A modern portfolio website showcasing projects, skills, and professional experience.",
-    //   image: "/images/project6.jpg",
-    //   github: "https://github.com/asma019/portfolio",
-    //   demo: "#",
-    //   category: "web",
-    //   tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
-    // },
+  
   ];
 
   // Filter projects based on active category
@@ -104,7 +55,7 @@ export const Work = () => {
         >
           <h2 className="heading-lg mb-2 text-3xl">Featured Projects</h2>
           <div className="h-1 w-20 bg-[#e86b80] mx-auto"></div>
-          <p className="paragraph text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mt-4">
+          <p  className={`${isDarkMode ? "text-gray-400" : "text-gray-800" } mb-12 mt-6 font-light leading-relaxed `}>
             A collection of projects I&apos;ve worked on, showcasing my skills and experience.
           </p>
         </motion.div>
@@ -135,7 +86,7 @@ export const Work = () => {
         </motion.div>
 
         {/* Projects grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8 place-items-center mx-6">
           {filteredProjects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -174,8 +125,8 @@ export const Work = () => {
                     <FiExternalLink size={16} />
                   </a>
                 </div>
-                <div className="absolute bottom-4 left-4 right-4">
-                  <div className="flex flex-wrap gap-2 mb-2">
+                <div className="absolute bottom-4 left-4 right-4 ">
+                  <div className="flex flex-wrap  gap-2 mb-2">
                     {project.tags.map((tag, idx) => (
                       <span
                         key={idx}
@@ -185,7 +136,7 @@ export const Work = () => {
                       </span>
                     ))}
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-1 group-hover:text-blue-300 transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-white mb-1 group-hover:text-pink-200 transition-colors duration-300">
                     {project.title}
                   </h3>
                 </div>

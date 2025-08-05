@@ -37,11 +37,11 @@ const Navbar = () => {
           transition={{ duration: 0.3 }}
           className="inline-flex items-center space-x-2 p-3  transform transition-transform"
         >
-          <img src={logo} alt="Logo" 
-          className={`w-30 rounded-md h-8 ${
-        isDarkMode ? "bg-pink-100" : "bg-gray-50/80"
-      } `}
-       />
+          <div className={`text-md font-bold uppercase font-serif transition-colors ${
+                isDarkMode
+                  ? "text-[#f5bbc5] hover:text-white"
+                  : "text-gray-600 hover:text-gray-900"
+              }`}>Fumika Mikami</div>
         </motion.div>
 
         {/* Desktop Navigation */}
@@ -87,7 +87,7 @@ const Navbar = () => {
         className={`p-2 rounded-full transition-colors
         ${isDarkMode
           ? "text-gray-400 hover:text-amber-600 hover:bg-pink-100"
-          : "text-gray-600 hover:text-gray-900 hover:bg-blue-100"}`}>
+          : "text-gray-500 hover:text-gray-900 hover:bg-blue-100"}`}>
           {isDarkMode ? <Sun size={18} /> :<Moon  size={18} />}
         </motion.button>
           

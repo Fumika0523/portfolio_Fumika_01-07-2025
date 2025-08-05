@@ -67,7 +67,7 @@ const Skill = () => {
 "bcrypt": <FaLock className="w-6 h-6 text-gray-600" />,
 "REST API": <MdApi className="w-6 h-6 text-blue-500" />,
 
-};
+    };
 
     const skills = [
       { name: "HTML", category: "frontend" },
@@ -149,7 +149,7 @@ const Skill = () => {
       isDarkMode? "bg-gray-950 text-white":"bg-gray-50 text-gray-900"
     }  py-8`}>
       <div className='heading-lg text-center mb-2 text-3xl'>My Developer Toolkit</div>
-          <div className="h-1 w-20 bg-[#e86b80] mx-auto mb-8"></div>
+       <div className="h-1 w-20 bg-[#e86b80] mx-auto mb-8"></div>
       {/* Background overlay para mejor contraste - REMOVIDO para mantener background consistente */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 to-background/60 pointer-events-none" />
 
@@ -184,7 +184,7 @@ const Skill = () => {
 
         {/*  skills */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -197,19 +197,21 @@ const Skill = () => {
               className="group relative"
             >
               {/* Card principal */}
-              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm border border-gray-600/50 hover:border-pink-300/30 transition-all duration-500 p-6">
-                {/* Header de la skill */}
+              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm border border-gray-600/50 hover:border-pink-300/30 transition-all duration-500 p-4">
+                {/* Header of a skill */}
                 <div className="flex flex-col items-center text-center">
-                  <div className="p-3 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                  <div className="p-2 rounded-xl group-hover:scale-110 transition-transform duration-300">
                     {skillIcons[skill.name] || (
-                      <Code2 className="w-8 h-8 text-muted-foreground" />
+                      <Code2 className="w-8 h-8 border-8 text-muted-foreground" />
                     )}
                   </div>
                   <div>
                     <h3 className="font-bold text-lg group-hover:text-primary transition-colors mb-2">
                       {skill.name}
                     </h3>
-                    <span className="px-3 py-1 text-xs font-medium bg-primary/10 border border-primary/20 rounded-full text-primary/80 capitalize">
+                    <span
+                      className={`px-3 py-1 text-xs font-medium border rounded-full capitalize`}
+                    >
                       {skill.category}
                     </span>
                   </div>
