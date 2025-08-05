@@ -148,8 +148,8 @@ const Skill = () => {
     id="skill" className={` section-padding ${
       isDarkMode? "bg-gray-950 text-white":"bg-gray-50 text-gray-900"
     }  py-8`}>
-      <div className='text-5xl font-bold text-center mb-8'>My Developer Toolkit</div>
-
+      <div className='heading-lg text-center mb-2 text-3xl'>My Developer Toolkit</div>
+          <div className="h-1 w-20 bg-[#e86b80] mx-auto mb-8"></div>
       {/* Background overlay para mejor contraste - REMOVIDO para mantener background consistente */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 to-background/60 pointer-events-none" />
 

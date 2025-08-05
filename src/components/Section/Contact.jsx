@@ -99,8 +99,7 @@ const Contact = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <span className={`inline-block px-3 py-1 text-sm font-medium 
-            ${isDarkMode ? " text-pink-200 bg-pink-500/40 " : "text-pink-500 bg-pink-100 "} rounded-full mb-4`}>Let's Connect</span>
+       
           <h2 className="heading-lg mb-2 text-3xl">Get In Touch</h2>
           <div className="h-1 w-20 bg-[#e86b80] mx-auto"></div>
           <p className={`paragraph  max-w-2xl mx-auto mt-4 ${isDarkMode ? "text-gray-400 " : "text-gray-700"}`}>
@@ -165,7 +164,7 @@ const Contact = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className={`pt-8 border-t ${isDarkMode ? "dark:border-gray-700 " : "border-gray-200 "}`}
+              className={`pt-8 border-t ${isDarkMode ? "border-gray-700 " : "border-gray-200 "}`}
             >
               <div className="flex items-center mb-5">
                 <h4 className="text-xl font-bold text-gray-900 dark:text-white">
@@ -182,8 +181,8 @@ const Contact = () => {
                   rel="noopener noreferrer"
                   whileHover={{ y: -3, scale: 1.1 }}
                   className={`flex-shrink-0 h-12 w-12 rounded-xl mr-2 border
-     ${isDarkMode
-                      ? "text-gray-200 bg-[#0c142c] border  border-gray-700 hover:text-white hover:border-gray-300"
+                  ${isDarkMode
+                      ? "text-gray-200 bg-[#0c142c] border  border-gray-700 hover:text-white hover:border-pink-200/60"
                       : "text-pink-500 bg-pink-100 border border-pink-300 hover:text-white"
                     } flex items-center justify-center transition-colors duration-300`}
                   aria-label="GitHub"
@@ -198,11 +197,10 @@ const Contact = () => {
                   whileHover={{ y: -3, scale: 1.1 }}
                   className={`flex-shrink-0 h-12 w-12 rounded-xl mr-2 border
                    ${isDarkMode
-                      ? "text-gray-200 bg-[#0c142c] border border-gray-700 hover:text-white hover:border-gray-300"
+                      ? "text-gray-200 bg-[#0c142c] border border-gray-700 hover:text-white hover:border-pink-200/60"
                       : "text-pink-500 bg-pink-100 border border-pink-300 hover:text-white"
                     } flex items-center justify-center transition-colors duration-300`}
-                  aria-label="LinkedIn"
-                >
+                  aria-label="LinkedIn" >
                   <FaLinkedin className="w-6 h-6" />
                 </motion.a>
               </div>
@@ -221,7 +219,7 @@ const Contact = () => {
 
               {/* Decorative elements */}
               <div className={`absolute -top-24 -right-24 w-48 h-48rounded-full blur-3xl ${isDarkMode ? " bg-blue-100/30 " : "bg-blue-900/20"}`}></div>
-              <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-blue-100/30 dark:bg-blue-900/20 rounded-full blur-3xl border-4 border-amber-500"></div>
+              {/* <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-blue-100/30 dark:bg-blue-900/20 rounded-full blur-3xl border-4 border-amber-500"></div> */}
 
               <div className="relative">
                 <div className="flex items-center mb-6">
