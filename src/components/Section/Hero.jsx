@@ -43,7 +43,6 @@ const Hero = () => {
       }
     }
 
-
       const styleBg = isDarkMode
         ? "bg-gradient-to-br from-[#e86b80]  to-pink-700/80 text-gray-200"
         : "bg-gradient-to-br from-pink-400/60 to-[#e86b80] text-white";

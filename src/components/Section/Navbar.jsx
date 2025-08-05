@@ -52,7 +52,7 @@ const Navbar = () => {
               aria-label={`Go to ${item} section`}
               whileHover={{ y: -2 }}
               onClick={() => scrollToSection(item.toLowerCase())}
-              className={`text-sm uppercase tracking-wider transition-colors ${
+              className={`text-md uppercase tracking-wider transition-colors ${
                 isDarkMode
                   ? "text-[#b78890] hover:text-white"
                   : "text-gray-600 hover:text-gray-900"

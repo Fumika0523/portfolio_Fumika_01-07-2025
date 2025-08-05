@@ -2,11 +2,14 @@ import { useTheme } from "../../context/ThemeContext"
 import { IoLogoNodejs } from "react-icons/io";
 import { useState, useMemo, useCallback } from "react";
 import { DiVisualstudio } from "react-icons/di";
+import { FaLock } from "react-icons/fa";
+import { MdApi } from "react-icons/md";
+import { FaLayerGroup, FaLaptopCode, FaServer, FaToolbox } from "react-icons/fa";
 import {
   SiHtml5, SiCss3, SiJavascript,
   SiReact,  SiTailwindcss,
   SiNodedotjs, SiExpress, SiMongodb, SiGithub, 
-  SiPostman,SiNetlify ,SiRender ,SiBootstrap ,SiMui 
+  SiPostman,SiNetlify ,SiRender ,SiBootstrap ,SiMui, SiJson ,SiNextdotjs ,SiFramer, SiRedux   
 } from 'react-icons/si';
 
 import {
@@ -49,13 +52,20 @@ const Skill = () => {
     className={`w-6 h-6 ${isDarkMode ? "text-gray-300" : "text-gray-800"
     }`}/>,
   MongoDB: <SiMongodb className="w-8 h-8" style={{ color: "#47A248" }} />,
-  "Git/GitHub": <SiGithub className="w-8 h-8" style={{ color: "#181717" }} />,
+  "Git/GitHub": <SiGithub className={`w-6 h-6 ${isDarkMode ? "text-gray-300" : "text-gray-800"
+    }`} />,
   "VS Code": <DiVisualstudio className="w-8 h-8" style={{ color: "#007ACC" }} />,
   POSTMAN: <SiPostman className="w-8 h-8" style={{ color: "#FF6C37" }} />,
   "Netlify" : <SiNetlify className="w-6 h-6 text-[#00C7B7]" />,
   Render: <SiRender className="w-6 h-6 text-[#46E3B7]" />,
   "Bootstrap": <SiBootstrap className="w-6 h-6 text-[#7952B3]" />,
   "MUI": <SiMui className="w-6 h-6 text-[#007FFF]" />,
+  "JWT": <SiJson className="w-6 h-6 text-yellow-500" />,
+  "Next.js": <SiNextdotjs className="w-6 h-6 text-black dark:text-white" />,
+  "Framer Motion": <SiFramer className="w-6 h-6 text-[#0055FF]" />,
+"Redux": <SiRedux className="w-6 h-6 text-[#764ABC]" />,
+"bcrypt": <FaLock className="w-6 h-6 text-gray-600" />,
+"REST API": <MdApi className="w-6 h-6 text-blue-500" />,
 
 };
 
@@ -75,6 +85,10 @@ const Skill = () => {
       {name:"Render",category:"tools"},
       {name:"MUI",category:"frontend"},
     {name:"Bootstrap",category:"frontend"},
+     {name:"Next.js",category:"frontend"},
+     {name:"Framer Motion",category:"frontend"},
+     {name:"bcrypt",category:"backend"},
+     {name:"JWT",category:"backend"},
     ];
 
       const [activeCategory, setActiveCategory] = useState("all");
@@ -108,12 +122,19 @@ const Skill = () => {
           },
         },
       };
-    const categories = [
-      { id: "all", name: "All Skills", icon: <Layers className="w-4 h-4" /> },
-      { id: "frontend", name: "Frontend", icon: <Palette className="w-4 h-4" /> },
-      { id: "backend", name: "Backend", icon: <Server className="w-4 h-4" /> },
-      { id: "tools", name: "Tools", icon: <Settings className="w-4 h-4" /> },
-    ];
+
+      const categories = [
+  { id: "all", name: "All Skills", icon: <FaLayerGroup className="w-4 h-4" /> },
+  { id: "frontend", name: "Frontend", icon: <FaLaptopCode className="w-4 h-4" /> },
+  { id: "backend", name: "Backend", icon: <FaServer className="w-4 h-4" /> },
+  { id: "tools", name: "Tools", icon: <FaToolbox className="w-4 h-4" /> },
+];
+    // const categories = [
+    //   { id: "all", name: "All Skills", icon: <Layers className="w-4 h-4" /> },
+    //   { id: "frontend", name: "Frontend", icon: <Palette className="w-4 h-4" /> },
+    //   { id: "backend", name: "Backend", icon: <Server className="w-4 h-4" /> },
+    //   { id: "tools", name: "Tools", icon: <Settings className="w-4 h-4" /> },
+    // ];
 
   // useCallback to stabilize the handler >> Only create this function once when the component mounts. Never recreate it on re-renders.
   const handleCategory = useCallback((id) => setActiveCategory(id), []);
@@ -122,7 +143,6 @@ const Skill = () => {
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 
    return (
-    
     <>
     <section
     id="skill" className={` section-padding ${
@@ -135,7 +155,7 @@ const Skill = () => {
 
      <div className="container mx-auto max-w-6xl relative z-10">
 
-        {/* category filters */}
+        {/* category filters Buttons*/}
         <motion.div
           className="flex flex-wrap justify-center gap-3 mb-12"
           initial={{ opacity: 0, y: 20 }}
@@ -152,8 +172,7 @@ const Skill = () => {
               ${activeCategory === category.id
                 ? "bg-gradient-to-br text-gray-200 from-[#efafb9]  to-pink-800/80 shadow-lg shadow-primary/25"
                 : "bg-card/50 border border-gray-400/50 text-muted-foreground hover:bg-pink-400/30 hover:border-pink-400/30 hover:text-white"
-        }
-      `}
+        }`}
               whileHover={!isMobile ? { scale: 1.05 } : {}}
               whileTap={!isMobile ? { scale: 0.95 } : {}}
             >
@@ -165,7 +184,7 @@ const Skill = () => {
 
         {/*  skills */}
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
