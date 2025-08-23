@@ -49,9 +49,8 @@ const Hero = () => {
 
 
   return (
-    <div className={`min-h-screen transition-all duration-500 ${
-      isDarkMode? "bg-gray-950 text-white":"bg-gray-50 text-gray-900"
-    }`}>
+    <div >
+
       {/* Hero Section */}
       <motion.section
       id="home"
@@ -101,26 +100,26 @@ const Hero = () => {
           <motion.div
               variants={itemVariants}
               className=" flex justify-center items-cenyer space-x-6 text-xs uppercase tracking-widest flex-wrap pb-20">
-                <span className={isDarkMode? "text-[#b78890]"  : "text-gray-500"}>
+                <span className={isDarkMode? "text-[#dac580]"  : "text-gray-500"}>
                   Frontend
                 </span>
                 <span className={isDarkMode? "text-gray-700" : "text-gray-400"}>
                   .
                 </span>
-                        <span className={isDarkMode? "text-[#b78890]"  : "text-gray-500"}>
+                        <span className={isDarkMode? "text-[#f8de8a]"  : "text-gray-500"}>
                   Backend
                 </span>
                 <span className={isDarkMode? "text-gray-700" : "text-gray-400"}>
                   .
                 </span>
-                <span className={isDarkMode? "text-[#b78890]"  : "text-gray-500"}>
+                <span className={isDarkMode? "text-[#f8de8a]"  : "text-gray-500"}>
                   Freelance
                 </span>
           </motion.div>
             {/* Profile Image - Mobile */}
             <motion.div variants={imageVariants}
             className="mb-8">
-              <div className="w-35 h-35 mx-auto  relative">
+              <div className="w-35 h-35 mx-auto mb-16 relative">
                 <motion.div
                 whileHover={{scale:1.05}}
                 className={`w-full h-32 rounded-2xl overflow-hidden 
@@ -143,7 +142,7 @@ const Hero = () => {
               {/* Content - Mobile */}
               <motion.div
               variants={textVariants}
-              className={`text-sm uppercase tracking-widest ${isDarkMode ? "text-gray-500" : "text-gray-300" } mb-4`}
+              className={` text-sm uppercase tracking-widest ${isDarkMode ? "text-gray-400" : "text-gray-300" } mb-4`}
               >
                 Full Stack Developer
               </motion.div>
@@ -153,20 +152,20 @@ const Hero = () => {
               className="text-3xl md:text-5xl font-light mb-6 leading-tight"
               >
                 <span className={`${isDarkMode ? "text-white" : "text-gray-900"}`}>
-                  Building digital
+                  Designing & Developing Web That Matters
                 </span>
-                <span className="text-[#e86b80] font-medium ml-2">
+                {/* <span className="text-[#e86b80] font-medium ml-2">
                   experiences
                 </span>
                 <br />
                 <span className={isDarkMode ? "text-white" : "text-gray-900"}>
                   that matter
-                </span>
+                </span> */}
               </motion.h1>
 
               <motion.p
               variants={itemVariants}
-              className={`text-center md:text-lg mb-5 ${isDarkMode ? "text-gray-400" : "text-gray-400" }`}>
+              className={`text-center md:text-lg mb-5 ${isDarkMode ? "text-gray-300/60" : "text-gray-400" }`}>
               I'm a junior full-stack developer currently building my skills in modern web development. I enjoy working with technologies like React, Node.js, and MongoDB, and I’m passionate about creating clean, functional, and responsive web applications. While I'm still learning, I'm committed to writing better code every day and building real-world projects that challenge and grow my abilities.
               </motion.p>
 
@@ -184,7 +183,7 @@ const Hero = () => {
                 whileHover={{y:-2}}
                 whileTap={{scale:0.98}}
                 onClick={()=> scrollToSection("contact")}
-                className={`border ${isDarkMode? "border border-[#b78890] hover:border-pink-200 text-pink-100/70" : "border-gray-300 hover:border-gray-400 text-gray-700"} px-8 py-3 rounded-full text-sm uppercase tracking-wider font-medium transition-all duration-300`}>
+                className={`border ${isDarkMode? "border border-[#f8de8a] hover:border-pink-200 text-pink-100/70" : "border-gray-300 hover:border-gray-400 text-gray-700"} px-8 py-3 rounded-full text-sm uppercase tracking-wider font-medium transition-all duration-300`}>
                   Get in Touch
                 </motion.button>
               </motion.div>
@@ -219,7 +218,7 @@ const Hero = () => {
         </div>
 
         {/* DeskTop Layout - Split */}
-        <div className="hidden lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center  mx-10">
+        <div className="hidden lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center mx-9">
           {/* Left Column - Content*/}
           <motion.div
           initial="hidden"
@@ -230,31 +229,27 @@ const Hero = () => {
               variants={textVariants}
               className={`text-lg uppercase tracking-widest mb-6 ${
                 isDarkMode
-                  ? "text-[#e69fab]  "
+                  ? "text-[#76746f] "
                   : "text-gray-600"
               }`}
             >
-              Full Sack Developer
+              Full Stack Developer
             </motion.div>
 
             <motion.h1 variants={itemVariants}
-            className="text-5xl xl:text-7xl font-light mb-8 leading-tight">
+            className="text-4xl xl:text-4xl font-light mb-8 ">
               <span className={`${isDarkMode ? "text-white":"text-gray-900"}`}>
-                Building ditital
-              </span>
-              <br />
-              <span className={` text-[#e86b80] font-medium`}>
-                experiences
-              </span>
-              <br />
-              <span className={`${isDarkMode ? "text-white":"text-gray-900"}`}>
-                that matter
+          Code That 
+              <span className={`mx-2.5 text-[#e86b80] font-medium`}>
+              Moves
+              </span>    
+              People  
               </span>
             </motion.h1>
 
             <motion.p
               variants={itemVariants}
-              className={`text-xl  ${isDarkMode ? "text-gray-400" : "text-gray-800" } mb-12 font-light leading-relaxed max-w-lg`}>
+              className={`text-xl  ${isDarkMode ? "text-pink-100/80" : "text-gray-800" } mb-12 font-light leading-relaxed text-center border-amber-300 `}>
               I'm a junior full-stack developer currently building my skills in modern web development. I enjoy working with technologies like React, Node.js, and MongoDB, and I’m passionate about creating clean, functional, and responsive web applications. While I'm still learning, I'm committed to writing better code every day and building real-world projects that challenge and grow my abilities.
             </motion.p>
             {/* CTA Button - DeskTop */}
@@ -313,20 +308,20 @@ const Hero = () => {
             <div className="relative">
               {/* Tech Stack - DeskTop */}
               <motion.div variants={itemVariants}
-              className="flex items-center justify-center space-x-8 text-sm uppcercase tracking-widest absolute -top-40  ">
-                <span className={isDarkMode ? "text-pink-200/60" : "text-gray-500"}>
+              className="flex items-center justify-center space-x-8 text-md uppcercase tracking-widest absolute -top-40  ">
+                <span className={isDarkMode ? "text-[#fee884]" : "text-gray-500"}>
                   Frontend
                 </span>
-                <span className={isDarkMode ? "text-pink-200"  : "text-gray-400"}>
+                <span className={isDarkMode ? "text-pink-300"  : "text-gray-400"}>
                   .
                 </span>
-                <span className={isDarkMode ? "text-pink-200/60"  : "text-gray-500"}>
+                <span className={isDarkMode ? "text-[#fee884]": "text-gray-500"}>
                   Beckend
                 </span>
                 <span className={isDarkMode ? "text-pink-200" : "text-gray-400"}>
                   .
                 </span>
-                <span className={isDarkMode ? "text-pink-200/60"  : "text-gray-500"}>
+                <span className={isDarkMode ? "text-[#fee884]"  : "text-gray-500"}>
                   Freelance
                 </span>
                 <span className={isDarkMode ? "text-pink-200" : "text-gray-400"}>
@@ -344,12 +339,12 @@ const Hero = () => {
               <motion.div 
               animate={{rotate:360}}
               transition={{duration:20, repeat:Infinity, ease:"linear"}}
-              className="absolute -inset-4 rounded-3xl border border-gray-200/30"/>
+              className="absolute -inset-4 rounded-3xl  border-2 border-[#fbd74a]"/>
 
              <motion.div 
             animate={{rotate:-360}}
              transition={{duration:30, repeat:Infinity, ease:"linear"}}
-             className="absolute -inset-8 rounded-3xl border border-pink-400/80"/>
+             className="absolute -inset-8 rounded-3xl border-2 border-[#f89fb5]"/>
             </div>
           </motion.div>
         </div>
@@ -362,3 +357,6 @@ const Hero = () => {
 }
 
 export default Hero
+
+
+

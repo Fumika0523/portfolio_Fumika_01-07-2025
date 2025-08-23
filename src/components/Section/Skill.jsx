@@ -145,9 +145,7 @@ const Skill = () => {
    return (
     <>
     <section
-    id="skill" className={` section-padding ${
-      isDarkMode? "bg-gray-950 text-white":"bg-gray-50 text-gray-900"
-    }  py-8`}>
+    id="skill" className={` section-padding py-8`}>
       <div className='heading-lg text-center mb-2 text-3xl'>My Developer Toolkit</div>
        <div className="h-1 w-20 bg-[#e86b80] mx-auto mb-8"></div>
       {/* Background overlay para mejor contraste - REMOVIDO para mantener background consistente */}

@@ -89,8 +89,7 @@ const Contact = () => {
     :
     "bg-gradient-to-br text-gray-100 from-pink-400/60  to-[#e86b80]"
   return (
-    <section id="contact" className={`py-8 section-padding ${isDarkMode ? "bg-gray-950 text-white" : "bg-gray-50 text-gray-900"
-      }`}>
+    <section id="contact" className={`py-8 section-padding `}>
       <div className="container mx-auto container-padding">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -132,8 +131,8 @@ const Contact = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`flex items-start p-5 rounded-xl shadow-md hover:shadow-lg transition-shadowduration-300 
-                    ${isDarkMode ? "border-gray-800 group bg-[#070c1b]" : "border-gray-100 bg-white"}`}
+                  className={`flex items-start p-5 rounded-xl shadow-md hover:shadow-lg transition-shadowduration-300 border 
+                    ${isDarkMode ? "border-gray-300/20 group bg-[#10142e]" : "border-gray-100 bg-white"}`}
                 >
 
                   <div className={`flex-shrink-0 h-12 w-12 rounded-xl mr-2
@@ -214,7 +213,7 @@ const Contact = () => {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="md:col-span-3"
           >
-            <div className={`  ${isDarkMode ? "border-pink-100/20 group bg-[#070c1b]" : "border-gray-100 bg-white"}
+            <div className={`  ${isDarkMode ? "border-pink-100/20 group bg-[#10142e]" : "border-gray-100 bg-white"}
              rounded-2xl shadow-xl p-8 border  relative overflow-hidden`}>
 
               {/* Decorative elements */}

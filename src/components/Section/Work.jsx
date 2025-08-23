@@ -42,9 +42,7 @@ export const Work = () => {
     
     <>
 <section
-    id="skill" className={` section-padding ${
-      isDarkMode? "bg-gray-950 text-white":"bg-gray-50 text-gray-900"
-    }  py-8`}>
+    id="skill" className={` section-padding  py-8`}>
        <div className="container mx-auto container-padding">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
