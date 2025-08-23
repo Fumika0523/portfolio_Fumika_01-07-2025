@@ -92,7 +92,7 @@ export const Work = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className={`rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border  group hover:-translate-y-2 ${isDarkMode? "bg-gray-800/40 border-gray-700" : "bg-white border-gray-100 "}`}
+              className={`rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border  group hover:-translate-y-2 ${isDarkMode? " bg-[#151938] border-gray-700" : "bg-white border-gray-100 "}`}
             >
               <div className="relative h-56 w-full overflow-hidden">
                 <img

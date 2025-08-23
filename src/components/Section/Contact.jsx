@@ -132,7 +132,7 @@ const Contact = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className={`flex items-start p-5 rounded-xl shadow-md hover:shadow-lg transition-shadowduration-300 border 
-                    ${isDarkMode ? "border-gray-300/20 group bg-[#10142e]" : "border-gray-100 bg-white"}`}
+                    ${isDarkMode ? "border-gray-400/40 group bg-[#151938]" : "border-gray-100 bg-white"}`}
                 >
 
                   <div className={`flex-shrink-0 h-12 w-12 rounded-xl mr-2
@@ -175,19 +175,20 @@ const Contact = () => {
 
                 {/* GITHUB */}
                 <motion.a
-                  href="https://github.com/asma019/"
+                  href="ttps://github.com/Fumika0523"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ y: -3, scale: 1.1 }}
                   className={`flex-shrink-0 h-12 w-12 rounded-xl mr-2 border
                   ${isDarkMode
-                      ? "text-gray-200 bg-[#0c142c] border  border-gray-700 hover:text-white hover:border-pink-200/60"
+                      ? " bg-[#0c142c] border  border-gray-400/60 text-gray-300  hover:text-white hover:bg-black hover:border-white"
                       : "text-pink-500 bg-pink-100 border border-pink-300 hover:text-white"
                     } flex items-center justify-center transition-colors duration-300`}
                   aria-label="GitHub"
                 >
                   <FaGithub className="w-6 h-6" />
                 </motion.a>
+
                 {/* LINKED In */}
                 <motion.a
                   href="https://linkedin.com/in/your-linkedin-id"
@@ -196,7 +197,7 @@ const Contact = () => {
                   whileHover={{ y: -3, scale: 1.1 }}
                   className={`flex-shrink-0 h-12 w-12 rounded-xl mr-2 border
                    ${isDarkMode
-                      ? "text-gray-200 bg-[#0c142c] border border-gray-700 hover:text-white hover:border-pink-200/60"
+                      ? " bg-[#0c142c] border  border-gray-400/60 text-gray-300  hover:text-white hover:bg-black hover:border-white"
                       : "text-pink-500 bg-pink-100 border border-pink-300 hover:text-white"
                     } flex items-center justify-center transition-colors duration-300`}
                   aria-label="LinkedIn" >
@@ -213,11 +214,11 @@ const Contact = () => {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="md:col-span-3"
           >
-            <div className={`  ${isDarkMode ? "border-pink-100/20 group bg-[#10142e]" : "border-gray-100 bg-white"}
+            <div className={`  ${isDarkMode ? "border-gray-400/40  group bg-[#151938]" : "border-gray-100 bg-white"}
              rounded-2xl shadow-xl p-8 border  relative overflow-hidden`}>
 
               {/* Decorative elements */}
-              <div className={`absolute -top-24 -right-24 w-48 h-48rounded-full blur-3xl ${isDarkMode ? " bg-blue-100/30 " : "bg-blue-900/20"}`}></div>
+              <div className={`absolute -top-24 -right-24 w-48 h-48 rounded-full blur-3xl ${isDarkMode ? " bg-gray-500/10 " : "bg-blue-900/20"}`}></div>
               {/* <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-blue-100/30 dark:bg-blue-900/20 rounded-full blur-3xl border-4 border-amber-500"></div> */}
 
               <div className="relative">
@@ -248,8 +249,8 @@ const Contact = () => {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className={`w-full px-4 py-3 border rounded-xl  brounded-xl focus:ring-2 focus:border-blue-500 focus:ring-blue-500 transition-colors
-                        ${isDarkMode ? "border-pink-100/20 bg-gray-900/40 text-white" : " border-gray-300 "}`}
+                        className={`w-full px-4 py-3 border rounded-xl  brounded-xl  transition-colors
+                        ${isDarkMode ? "border-gray-500/40  bg-[#12112e]   text-white" : " border-gray-300 "}`}
                         placeholder="John Doe"
                       />
                     </div>
@@ -264,8 +265,8 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className={`w-full px-4 py-3 border rounded-xl  brounded-xl focus:ring-2 focus:border-blue-500 focus:ring-blue-500 transition-colors
-                       ${isDarkMode ? "border-pink-100/20 bg-gray-900/40 text-white" : " border-gray-300 "}`}
+                        className={`w-full px-4 py-3 border rounded-xl  brounded-xl focus:ring-2 transition-colors
+                        ${isDarkMode ? "border-gray-500/40  bg-[#12112e]  text-white" : " border-gray-300 "}`}
                         placeholder="john@example.com"
                       />
                     </div>
@@ -282,8 +283,8 @@ const Contact = () => {
                       value={formData.subject}
                       onChange={handleChange}
                       required
-                      className={`w-full px-4 py-3 border rounded-xl  brounded-xl focus:ring-2 focus:border-blue-500 focus:ring-blue-500 transition-colors
-                        ${isDarkMode ? "border-pink-100/20 bg-gray-900/40 text-white" : " border-gray-300 "}`}
+                      className={`w-full px-4 py-3 border rounded-xl  brounded-xl focus:ring-2  transition-colors
+                ${isDarkMode ? "border-gray-500/40  bg-[#12112e]  text-white" : " border-gray-300 "}`}
                       placeholder="Project Inquiry"
                     />
                   </div>
@@ -299,8 +300,8 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       rows={5}
-                      className={`w-full px-4 py-3 border rounded-xl  brounded-xl focus:ring-2 focus:border-blue-500 focus:ring-blue-500 transition-colors
-                        ${isDarkMode ? "border-pink-100/20 bg-gray-900/40 text-white" : " border-gray-300 "}`}
+                      className={`w-full px-4 py-3 border rounded-xl  brounded-xl focus:ring-2  transition-colors
+                        ${isDarkMode ? "border-gray-500/40  bg-[#12112e]   text-white" : " border-gray-300 "}`}
                       placeholder="Your message here..."
                     ></textarea>
                   </div>

@@ -106,7 +106,7 @@ const Hero = () => {
                 <span className={isDarkMode? "text-gray-700" : "text-gray-400"}>
                   .
                 </span>
-                        <span className={isDarkMode? "text-[#f8de8a]"  : "text-gray-500"}>
+                        <span className={isDarkMode? "text-[#text-[#f8de8a]]"  : "text-gray-500"}>
                   Backend
                 </span>
                 <span className={isDarkMode? "text-gray-700" : "text-gray-400"}>
