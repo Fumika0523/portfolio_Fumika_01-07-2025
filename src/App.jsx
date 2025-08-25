@@ -41,7 +41,7 @@ const AppContent = () => {
 <>
       {/* All components now inherit dark mode */}
             <div className={`mh-screen transition-all duration-500 ${
-      isDarkMode? "bg-[#12132e] text-white":"bg-gray-50 text-gray-900"
+      isDarkMode? "bg-[#25265c] text-white":"bg-gray-50 text-gray-900"
     }`}>
         <Navbar toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
         <Hero />

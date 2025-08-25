@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { AnimatePresence, motion } from "framer-motion"
-import { Code2, Sun, Moon } from "lucide-react"
+import { Moon } from "lucide-react"
 import { useTheme } from "../../context/ThemeContext"
-import logo from "../../assets/image/logo.png"
 import { IoMdClose } from "react-icons/io";
 import { IoMenu } from "react-icons/io5";
+import { IoSunny } from "react-icons/io5";
+
 
 
 const Navbar = () => {
@@ -38,7 +39,7 @@ const Navbar = () => {
         >
           <div className={`text-md font-bold uppercase font-serif transition-colors ${
                 isDarkMode
-                  ? "text-[#fce1e8] hover:text-white"
+                  ? "text-yellow-400 hover:text-white"
                   : "text-gray-600 hover:text-gray-800"
               }`}>Fumika Mikami</div>
         </motion.div>
@@ -53,7 +54,7 @@ const Navbar = () => {
               onClick={() => scrollToSection(item.toLowerCase())}
               className={`text-md uppercase tracking-wider transition-colors ${
                 isDarkMode
-                  ? "text-[#f4bbc9] hover:text-white"
+                  ? "text-pink-300 hover:text-white"
                   : "text-gray-600 hover:text-gray-900"
               }`}
             >
@@ -72,7 +73,7 @@ const Navbar = () => {
                 : "text-gray-600 hover:text-gray-900 hover:bg-pink-100"
             }`}
           >
-            {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
+            {isDarkMode ? <IoSunny size={20} /> : <Moon size={20} />}
           </motion.button>
         </div>
   
@@ -87,7 +88,7 @@ const Navbar = () => {
         ${isDarkMode
           ? "text-orange-300 hover:text-amber-600 hover:bg-pink-100"
           : "text-gray-500 hover:text-gray-900 hover:bg-blue-100"}`}>
-          {isDarkMode ? <Sun size={20} /> :<Moon  size={20} />}
+          {isDarkMode ? <IoSunny size={20} /> :<Moon  size={20} />}
         </motion.button>
           
         <motion.button
@@ -95,7 +96,7 @@ const Navbar = () => {
         whileTap={{scale:0.95}}
         onClick={()=>setIsMenuOpen(!isMenuOpen)}
         className={`p-2 rounded-full transition-colors
-        ${isDarkMode ? "text-pink-200/60 hover:text-white hover:bg-gray-800":"text-gray-600 hover:text-gray-900 hover:bg-gray-200"}`}>
+        ${isDarkMode ? "text-gray-200/80 hover:text-white hover:bg-gray-800":"text-gray-600 hover:text-gray-900 hover:bg-gray-200"}`}>
           {isMenuOpen ? <IoMdClose size={20} /> :< IoMenu size={20} />}
         </motion.button>
       </div>
@@ -109,7 +110,7 @@ const Navbar = () => {
             animate={{opacity:1, y:0}}
             exit={{opacity:0, y:-20}}
             className={`md:hidden mt-4 rounded-lg ${
-              isDarkMode ? "bg-[#131327] text-white" : "bg-white"
+              isDarkMode ? "bg-[#33336c] text-white" : "bg-white"
             } border ${isDarkMode ? "border-gray-200/20":"border-gray-200"}`}>
 
             {navItems.map((item)=>(
@@ -119,7 +120,7 @@ const Navbar = () => {
               onClick={()=>scrollToSection(item.toLowerCase())}
               className={`block w-full ml-2  text-left px-2 py-2 text-sm uppercase tracking-wider transition-colors
                 ${
-              isDarkMode ? "text-[#f8cad6] hover:text-white" : "text-gray-600 hover:text-gray-900"
+              isDarkMode ? "hover:text-white text-pink-300" : "text-gray-600 hover:text-gray-900"
             }`}>
           {item}
           </motion.button>

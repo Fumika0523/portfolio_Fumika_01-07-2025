@@ -4,6 +4,8 @@ import { useState } from "react";
 import MovieStationImg from "../../assets/image/Moviestation.png";
 import { motion } from "framer-motion";
 import { FiGithub, FiExternalLink, FiCode, FiFolder, FiArrowRight } from "react-icons/fi";
+import { IoCodeSlashSharp } from "react-icons/io5";
+import { AiFillDatabase } from "react-icons/ai";
 
 export const Work = () => {
 
@@ -24,12 +26,13 @@ export const Work = () => {
     {
       id: 1,
       title: "E-commerce Platform",
-      description: "A full-stack e-commerce platform with user authentication, product management, and payment integration.",
+      description: "A full-stack Movie e-commerce platform with user authentication, product management including download invoice",
       image: MovieStationImg,
-      github: "https://github.com/asma019/ecommerce-platform",
+      github_frontend: "https://github.com/Fumika0523/FrontEnd_MovieStation_11-09-2024",
+      github_backend:"https://github.com/Fumika0523/FrontEnd_MovieStation_11-09-2024",
       demo: "#",
       category: "fullstack",
-      tags: ["React", "Node.js", "MongoDB"],
+      tags: ["Frontend Code", "Backend Code"],
     },
   
   ];
@@ -42,7 +45,7 @@ export const Work = () => {
     
     <>
 <section
-    id="skill" className={` section-padding  py-8`}>
+    id="work" className={` section-padding  py-8`}>
        <div className="container mx-auto container-padding">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -53,7 +56,7 @@ export const Work = () => {
         >
           <h2 className="heading-lg mb-2 text-3xl">Featured Projects</h2>
           <div className="h-1 w-20 bg-[#e86b80] mx-auto"></div>
-          <p  className={`${isDarkMode ? "text-gray-400" : "text-gray-800" } mb-12 mt-6 font-light leading-relaxed `}>
+          <p  className={`${isDarkMode ? "text-gray-400" : "text-gray-800" } my-5 font-light leading-relaxed `}>
             A collection of projects I&apos;ve worked on, showcasing my skills and experience.
           </p>
         </motion.div>
@@ -92,59 +95,52 @@ export const Work = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className={`rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border  group hover:-translate-y-2 ${isDarkMode? " bg-[#151938] border-gray-700" : "bg-white border-gray-100 "}`}
+              className={`rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border  group hover:-translate-y-2 ${isDarkMode? " bg-[#2e3267] border-gray-500/40 " : "bg-white border-gray-100 "}`}
             >
               <div className="relative h-56 w-full overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
-                  fill
+                 fill="true"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
                 <div className="absolute top-4 right-4 flex space-x-2">
+                  {/* GitHub Icon */}
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white hover:text-pink-600 transition-colors duration-300"
+                    className="w-13 h-9 rounded-full gap-1  bg-gray-200/40  items-center backdrop-blur-sm flex  justify-center text-white hover:bg-white hover:text-pink-600 transition-colors duration-300"
                     aria-label={`View GitHub repository for ${project.title}`}
                   >
-                    <FiGithub size={16} />
+                    <FiGithub size={16} /> <IoCodeSlashSharp size={16}/>
                   </a>
-                  <a
+                      <a
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white hover:text-pink-600 transition-colors duration-300"
+                    className="w-13 h-9 rounded-full bg-gray-200/40 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white hover:text-pink-600 transition-colors gap-0.5 duration-300"
                     aria-label={`View live demo for ${project.title}`}
                   >
-                    <FiExternalLink size={16} />
+                        <FiGithub size={16} /> <AiFillDatabase />
                   </a>
                 </div>
                 <div className="absolute bottom-4 left-4 right-4 ">
-                  <div className="flex flex-wrap  gap-2 mb-2">
-                    {project.tags.map((tag, idx) => (
-                      <span
-                        key={idx}
-                        className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-white/20 backdrop-blur-sm text-white"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-1 group-hover:text-pink-200 transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-white mb-1  transition-colors duration-300">
                     {project.title}
                   </h3>
                 </div>
               </div>
               <div className="p-6">
-                <p className="text-gray-600 dark:text-gray-400 mb-4">
+                <p className={`  mb-4  ${isDarkMode? " text-gray-200/80" : "text-gray-400"}`}
+                   >
                   {project.description}
                 </p>
                 <div className="flex justify-between items-center">
-                  <div className={`flex items-center border border-gray-400 rounded-full px-3 py-1 ${isDarkMode? "text-gray-400":"text-gray-500"}`}>
+
+                  <div className={`flex items-center border  rounded-full px-3 py-1 ${isDarkMode? "bg-pink-800/60 border-pink-800/20  text-pink-200/80":"text-gray-500"}`}>
                     <FiFolder className="mr-2" />
                     <span className="text-sm font-medium capitalize">{project.category}</span>
                   </div>
@@ -152,10 +148,10 @@ export const Work = () => {
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`inline-flex items-center text-sm font-medium group/link ${isDarkMode? "text-pink-200/70":"text-pink-600 "}`}
+                    className={`inline-flex items-center text-sm font-medium group/link ${isDarkMode? "text-[#fcce03]":"text-pink-600 "}`}
                   >
-                    View Project 
-                    <FiArrowRight className="ml-1 transform group-hover/link:translate-x-1 transition-transform duration-300" />
+                   <span className='flex items-center flex-nowrap font-bold gap-1'>View Demo <FiExternalLink size={18} className="ml-1 transform group-hover/link:translate-x-1 transition-transform duration-300"  /></span> 
+                    {/* <FiArrowRight /> */}
                   </a>
                 </div>
               </div>
@@ -172,7 +168,7 @@ export const Work = () => {
           className="flex justify-center mt-12"
         >
           <a 
-            href="https://github.com/asma019" 
+            href="https://github.com/Fumika0523" 
             target="_blank" 
             rel="noopener noreferrer"
             className={`inline-flex items-center px-6 py-3 bg-gradient-to-r from-pink-600/60 to-pink-500/60 hover:from-pink-700/60 hover:to-pink-600/60 text-gray-300 font-medium rounded-full shadow-md hover:shadow-lg transition-all duration-300`}

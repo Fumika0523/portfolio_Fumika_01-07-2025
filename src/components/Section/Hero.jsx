@@ -44,7 +44,7 @@ const Hero = () => {
     }
 
       const styleBg = isDarkMode
-        ? "bg-gradient-to-br from-[#e86b80]  to-pink-700/80 text-gray-200"
+        ? "bg-gradient-to-br from-[#e86b80]  to-pink-700/80 text-gray-200 hover:bg-pink-900/60"
         : "bg-gradient-to-br from-pink-400/60 to-[#e86b80] text-white";
 
 
@@ -100,19 +100,19 @@ const Hero = () => {
           <motion.div
               variants={itemVariants}
               className=" flex justify-center items-cenyer space-x-6 text-xs uppercase tracking-widest flex-wrap pb-20">
-                <span className={isDarkMode? "text-[#dac580]"  : "text-gray-500"}>
+                <span className={isDarkMode? "text-[#f5d56dac]"  : "text-gray-500"}>
                   Frontend
                 </span>
-                <span className={isDarkMode? "text-gray-700" : "text-gray-400"}>
+                <span className={isDarkMode? "text-[#f5d56dac]" : "text-gray-400"}>
                   .
                 </span>
-                        <span className={isDarkMode? "text-[#text-[#f8de8a]]"  : "text-gray-500"}>
+                <span className={isDarkMode? "text-[#f5d56dac]"  : "text-gray-500"}>
                   Backend
                 </span>
-                <span className={isDarkMode? "text-gray-700" : "text-gray-400"}>
+                <span className={isDarkMode? "text-[#f5d56dac]" : "text-gray-400"}>
                   .
                 </span>
-                <span className={isDarkMode? "text-[#f8de8a]"  : "text-gray-500"}>
+                <span className={isDarkMode? "text-[#f5d56dac]"  : "text-gray-500"}>
                   Freelance
                 </span>
           </motion.div>
@@ -142,26 +142,20 @@ const Hero = () => {
               {/* Content - Mobile */}
               <motion.div
               variants={textVariants}
-              className={` text-sm uppercase tracking-widest ${isDarkMode ? "text-gray-400" : "text-gray-300" } mb-4`}
+              className={` text-sm uppercase tracking-widest ${isDarkMode ? "text-[#a1a09d] " : "text-gray-300" } mb-4`}
               >
                 Full Stack Developer
               </motion.div>
-
-              <motion.h1
-              variants={itemVariants}
-              className="text-3xl md:text-5xl font-light mb-6 leading-tight"
-              >
-                <span className={`${isDarkMode ? "text-white" : "text-gray-900"}`}>
-                  Designing & Developing Web That Matters
-                </span>
-                {/* <span className="text-[#e86b80] font-medium ml-2">
-                  experiences
-                </span>
-                <br />
-                <span className={isDarkMode ? "text-white" : "text-gray-900"}>
-                  that matter
-                </span> */}
-              </motion.h1>
+     <motion.h1 variants={itemVariants}
+            className="text-4xl xl:text-4xl font-light mb-8 ">
+              <span className={`${isDarkMode ? "text-white":"text-gray-900"}`}>
+          Code That 
+              <span className={`mx-2.5 text-[#e86b80] font-medium`}>
+              Moves
+              </span>    
+              People  
+              </span>
+            </motion.h1>
 
               <motion.p
               variants={itemVariants}
@@ -172,18 +166,19 @@ const Hero = () => {
               {/* CTA Buttons - Mobile */}
               <motion.div variants={itemVariants}
               className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-                  <motion.button
-          whileHover={{ y: -2 }}
-          whileTap={{ scale: 0.98 }}
-          className={`w-40 h-12 rounded-full flex items-center justify-center shadow-md ${styleBg}`}>
-          View Work
-        </motion.button>
+              <motion.button
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={()=> scrollToSection("work")}
+              className={`w-40 h-12 rounded-full flex items-center justify-center shadow-md ${styleBg}`}>
+              View Work
+            </motion.button>
 
                 <motion.button
                 whileHover={{y:-2}}
                 whileTap={{scale:0.98}}
                 onClick={()=> scrollToSection("contact")}
-                className={`border ${isDarkMode? "border border-[#f8de8a] hover:border-pink-200 text-pink-100/70" : "border-gray-300 hover:border-gray-400 text-gray-700"} px-8 py-3 rounded-full text-sm uppercase tracking-wider font-medium transition-all duration-300`}>
+                className={`border ${isDarkMode? "border-2 border-[#8b868a] hover:border-yellow-200/80 hover:text-yellow-300" : "border-gray-300 hover:border-gray-400 text-[#f5d56dac]"} px-8 py-3 rounded-full text-sm uppercase tracking-wider font-medium transition-all duration-300`}>
                   Get in Touch
                 </motion.button>
               </motion.div>
@@ -229,7 +224,7 @@ const Hero = () => {
               variants={textVariants}
               className={`text-lg uppercase tracking-widest mb-6 ${
                 isDarkMode
-                  ? "text-[#76746f] "
+                  ? "text-[#a1a09d] "
                   : "text-gray-600"
               }`}
             >
@@ -264,13 +259,14 @@ const Hero = () => {
           : "  from-pink-400/60  to-[#e86b80] text-gray-100"}`}>
           View Work
         </motion.button>
-
-          <motion.button whileHover={{y:-2}}
-              whileTap={{scale:0.98}}
-              onClick={()=>scrollToSection("contact")}
-              className={`border ${isDarkMode? "border-gray-700 hover:border-gray-300 text-gray-300" : "border-gray-300 hover:border-gray-400 text-gray-700"} px-8 py-4 rounded-full text-sm uppercase tracking-wider font-medium transition-all duration-300`}>
-                Get In Touch
-              </motion.button>
+              
+                <motion.button
+                whileHover={{y:-2}}
+                whileTap={{scale:0.98}}
+                onClick={()=> scrollToSection("contact")}
+                className={`border ${isDarkMode? "border-2 border-[#8b868a] hover:border-yellow-200/80 hover:text-yellow-300" : "border-gray-300 hover:border-gray-400 text-[#f5d56dac]"} px-8 py-3 rounded-full text-sm uppercase tracking-wider font-medium transition-all duration-300`}>
+                  Get in Touch
+                </motion.button>
             </motion.div>
 
             {/* Social Links - Desktop */}
