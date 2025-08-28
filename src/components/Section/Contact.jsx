@@ -85,9 +85,9 @@ const Contact = () => {
 
   const { isDarkMode } = useTheme("")
   const styleBg = isDarkMode
-    ? "bg-gradient-to-br text-gray-200 from-[#e86b80]  to-pink-700/80"
+    ? "bg-gradient-to-br text-gray-200 from-[#e86b80] to-pink-700/80"
     :
-    "bg-gradient-to-br text-gray-100 from-pink-400/60  to-[#e86b80]"
+    "bg-gradient-to-br text-gray-100 from-pink-400/60 to-[#e86b80]"
   return (
     <section id="contact" className={`py-8 section-padding `}>
       <div className="container mx-auto container-padding">
@@ -115,7 +115,7 @@ const Contact = () => {
             className="md:col-span-2 space-y-8"
           >
             <div className="flex items-center mb-8">
-              <div className={`w-12 h-12 rounded-full bg-gradient-to-br  flex items-center justify-center shadow-md mr-4  ${styleBg}`}>
+              <div className={`w-12 h-12 rounded-full bg-gradient-to-br flex items-center justify-center shadow-md mr-4  ${styleBg}`}>
                 <FiMail size={20} />
               </div>
               <h3 className={`text-2xl font-bold ${isDarkMode ? "text-gray-300" : "text-gray-700"}`}>
@@ -132,7 +132,7 @@ const Contact = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className={`flex items-start p-5 rounded-xl shadow-md hover:shadow-lg transition-shadowduration-300 border 
-                    ${isDarkMode ? "border-gray-400/40 group  bg-[#323771]" : "border-gray-100 bg-white"}`}
+                    ${isDarkMode ? "border-gray-400/40 group bg-[#323771]" : "border-gray-100 bg-white"}`}
                 >
                   {/* */}
 
@@ -141,7 +141,7 @@ const Contact = () => {
                     {info.icon}
                   </div>
                   <div>
-                    <h4 className={`text-lg font-semibold  mb-1 ${isDarkMode ? "text-white" : "text-gray-900 "}`}>
+                    <h4 className={`text-lg font-semibold mb-1 ${isDarkMode ? "text-white" : "text-gray-900 "}`}>
                       {info.label}
                     </h4>
                     <a
@@ -182,7 +182,7 @@ const Contact = () => {
                   whileHover={{ y: -3, scale: 1.1 }}
                   className={`flex-shrink-0 h-12 w-12 rounded-xl mr-2 border
                   ${isDarkMode
-                      ? " bg-[#0c142c] border  border-gray-400/60 text-gray-300  hover:text-white hover:bg-black hover:border-white"
+                      ? " bg-[#1d214e] border border-gray-400/60 text-gray-300 hover:text-white hover:bg-black hover:border-white"
                       : "text-pink-500 bg-pink-100 border border-pink-300 hover:text-white"
                     } flex items-center justify-center transition-colors duration-300`}
                   aria-label="GitHub"
@@ -198,7 +198,7 @@ const Contact = () => {
                   whileHover={{ y: -3, scale: 1.1 }}
                   className={`flex-shrink-0 h-12 w-12 rounded-xl mr-2 border
                    ${isDarkMode
-                      ? " bg-[#0c142c] border  border-gray-400/60 text-gray-300  hover:text-white hover:bg-black hover:border-white"
+                      ? " bg-[#1d214e] border border-gray-400/60 text-gray-300 hover:text-white hover:bg-black hover:border-white"
                       : "text-pink-500 bg-pink-100 border border-pink-300 hover:text-white"
                     } flex items-center justify-center transition-colors duration-300`}
                   aria-label="LinkedIn" >
@@ -215,8 +215,8 @@ const Contact = () => {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="md:col-span-3"
           >
-            <div className={`  ${isDarkMode ? "border-gray-400/40  group  bg-[#323771]" : "border-gray-100 bg-white"}
-             rounded-2xl shadow-xl p-8 border  relative overflow-hidden`}>
+            <div className={`${isDarkMode ? "border-gray-400/40 group bg-[#323771]" : "border-gray-100 bg-white"}
+             rounded-2xl shadow-xl p-8 border relative overflow-hidden`}>
 
               {/* Decorative elements */}
               <div className={`absolute -top-24 -right-24 w-48 h-48 rounded-full blur-3xl ${isDarkMode ? " bg-gray-500/10 " : "bg-blue-900/20"}`}></div>
@@ -227,10 +227,10 @@ const Contact = () => {
                     <FiSend size={20} />
                   </div>
                   <div>
-                    <h3 className={`text-2xl font-bold  ${isDarkMode ? "text-white" : "text-gray-800 "}`}>
+                    <h3 className={`text-2xl font-bold ${isDarkMode ? "text-white" : "text-gray-800 "}`}>
                       Send Me a Message
                     </h3>
-                    <p className={`text-sm  ${isDarkMode ? "text-pink-200/80" : "text-gray-500"}`}>
+                    <p className={`text-sm ${isDarkMode ? "text-pink-200/80" : "text-gray-500"}`}>
                       Form: {formName}
                     </p>
                   </div>
@@ -238,7 +238,7 @@ const Contact = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="name" className={`block text-sm font-medium  mb-2 ${isDarkMode ? "text-gray-300" : "text-gray-600 "}`}>
+                      <label htmlFor="name" className={`block text-sm font-medium mb-2 ${isDarkMode ? "text-gray-300" : "text-gray-600 "}`}>
                         Your Name
                       </label>
                       <input
@@ -248,13 +248,13 @@ const Contact = () => {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className={`w-full px-4 py-3 border rounded-xl  brounded-xl  transition-colors
-                        ${isDarkMode ? "border-gray-500/40 bg-[#1d214e]  text-white" : " border-gray-300 "}`}
+                        className={`w-full px-4 py-3 border rounded-xl brounded-xl transition-colors
+                        ${isDarkMode ? "border-gray-500/40 bg-[#1d214e] text-white" : " border-gray-300 "}`}
                         placeholder="John Doe"
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className={`block text-sm font-medium  mb-2 ${isDarkMode ? "text-gray-300" : "text-gray-600 "}`}>
+                      <label htmlFor="email" className={`block text-sm font-medium mb-2 ${isDarkMode ? "text-gray-300" : "text-gray-600 "}`}>
                         Your Email
                       </label>
                       <input
@@ -264,15 +264,15 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className={`w-full px-4 py-3 border rounded-xl  brounded-xl focus:ring-2 transition-colors
-                        ${isDarkMode ? "border-gray-500/40  bg-[#1d214e]  text-white" : " border-gray-300 "}`}
+                        className={`w-full px-4 py-3 border rounded-xl brounded-xl focus:ring-2 transition-colors
+                        ${isDarkMode ? "border-gray-500/40 bg-[#1d214e] text-white" : " border-gray-300 "}`}
                         placeholder="john@example.com"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="subject" className={`block text-sm font-medium  mb-2 ${isDarkMode ? "text-gray-300" : "text-gray-600 "}`}>
+                    <label htmlFor="subject" className={`block text-sm font-medium mb-2 ${isDarkMode ? "text-gray-300" : "text-gray-600 "}`}>
                       Subject
                     </label>
                     <input
@@ -282,8 +282,8 @@ const Contact = () => {
                       value={formData.subject}
                       onChange={handleChange}
                       required
-                      className={`w-full px-4 py-3 border rounded-xl  brounded-xl focus:ring-2  transition-colors
-                ${isDarkMode ? "border-gray-500/40  bg-[#1d214e]  text-white" : " border-gray-300 "}`}
+                      className={`w-full px-4 py-3 border rounded-xl brounded-xl focus:ring-2 transition-colors
+                ${isDarkMode ? "border-gray-500/40 bg-[#1d214e] text-white" : " border-gray-300 "}`}
                       placeholder="Project Inquiry"
                     />
                   </div>
@@ -299,8 +299,8 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       rows={5}
-                      className={`w-full px-4 py-3 border rounded-xl  brounded-xl focus:ring-2  transition-colors
-                        ${isDarkMode ? "border-gray-500/40  bg-[#1d214e]   text-white" : " border-gray-300 "}`}
+                      className={`w-full px-4 py-3 border rounded-xl brounded-xl focus:ring-2 transition-colors
+                        ${isDarkMode ? "border-gray-500/40 bg-[#1d214e]  text-white" : " border-gray-300 "}`}
                       placeholder="Your message here..."
                     ></textarea>
                   </div>
@@ -309,7 +309,7 @@ const Contact = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className={`px-8 py-3 bg-gradient-to-r  rounded-xl shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 transition-all duration-300 flex items-center justify-center
+                      className={`px-8 py-3 bg-gradient-to-r rounded-xl shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 transition-all duration-300 flex items-center justify-center
                         ${isSubmitting ? "opacity-70 cursor-not-allowed" : "", styleBg}`}
                     >
                       {isSubmitting ? (

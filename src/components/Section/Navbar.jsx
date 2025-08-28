@@ -39,7 +39,7 @@ const Navbar = () => {
         >
           <div className={`text-md font-bold uppercase font-serif transition-colors ${
                 isDarkMode
-                  ? "text-yellow-400 hover:text-white"
+                  ? "text-orange-300 hover:text-white"
                   : "text-gray-600 hover:text-gray-800"
               }`}>Fumika Mikami</div>
         </motion.div>
