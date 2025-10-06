@@ -11,7 +11,7 @@ const AppContent = () => {
   const { isDarkMode, toggleDarkMode } = useTheme();
 
   return (
-   <div className={`relative min-h-screen ${isDarkMode ? "bg-[#25265c]" : "bg-orange-50"}`}>
+   <div className={`relative min-h-screen ${isDarkMode ? "bg-[#25265c]" : "bg-white/80"}`}>
   <Particle isDarkMode={isDarkMode} />
   <div className="relative z-10">
     <Navbar toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />

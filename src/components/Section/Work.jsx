@@ -11,10 +11,10 @@ import { AiFillDatabase } from "react-icons/ai";
 export const Work = () => {
 
   const { isDarkMode} = useTheme("")
-  const styleBg = isDarkMode
-    ? "bg-gradient-to-br text-gray-200 from-[#e86b80]  to-pink-700/80"
+  const styleBg = !isDarkMode
+    ? "bg-gradient-to-br text-gray-100 from-[#e86b80]  to-pink-700"
     :
-    "bg-gradient-to-br text-gray-100 from-pink-400/60  to-[#e86b80]"
+    "text-pink-200 bg-pink-500/60 group-hover:bg-[#e86b80] group-hover:text-pink-100 "
   
   const [activeCategory, setActiveCategory] = useState("all");
   const categories = [
@@ -81,21 +81,27 @@ export const Work = () => {
           transition={{ duration: 0.5 }}
           className="flex justify-center mb-16"
         >
-          <div className={`rounded-full  p-1.5 shadow-md space-x-10 flex flex-wrap justify-center ${isDarkMode? "border-gray-700" : " border-gray-100 "}`}>
-            {categories.map((category) => (
-              <button
-                key={category.id}
+
+              <div className={`rounded-full border-2   p-1.5 shadow-md space-x-10 flex flex-wrap justify-center ${isDarkMode? "bg-[#25265c] border-[#35366c]" : " border-gray-100 bg-[#fdfdfa]"}`}>
+                    {categories.map((category) => (
+              <motion.button
+                  key={category.id}
                 onClick={() => setActiveCategory(category.id)}
-                className={` px-8 py-3 rounded-full  text-md font-medium transition-all duration-300 ${
+              className={`px-5 py-2 rounded-full flex items-center gap-1 text-[16px]  cursor-pointer transition-all duration-300 border
+                ${
                   activeCategory === category.id
-                   ? "bg-gradient-to-br text-gray-200 from-[#efafb9]  to-pink-800/90 shadow-lg shadow-primary/25"
-                : "bg-card/50 border border-gray-400/50 text-gray-300/80 text-muted-foreground hover:bg-pink-300/70 hover:border-pink-400/30 hover:text-white"
+                    ? "bg-gradient-to-br from-[#efafb9] to-pink-800 text-gray-200 shadow-lg shadow-primary/25 border-0"
+                    : `bg-card/50 border-0 ${
+                        isDarkMode
+                          ? "text-gray-300 hover:bg-gray-700/30"
+                          : "text-gray-700 hover:bg-pink-100/50"
+                      }`
                 }`}
-              >
-                {category.label}
-              </button>
-            ))}
-          </div>
+            >
+                 {category.label}
+            </motion.button>
+                    ))}
+                      </div>
         </motion.div>
 
         {/* Projects grid */}
@@ -188,7 +194,7 @@ export const Work = () => {
             href="https://github.com/Fumika0523" 
             target="_blank" 
             rel="noopener noreferrer"
-            className={`inline-flex items-center px-6 py-3 bg-gradient-to-r from-pink-600/60 to-pink-500/60 hover:from-pink-700/60 hover:to-pink-600/60 text-gray-300 font-medium rounded-full shadow-md hover:shadow-lg transition-all duration-300`}
+            className={`inline-flex items-center px-6 py-3 group-hover:bg-[#e86b80] group-hover:text-pink-100  font-medium rounded-full shadow-md hover:shadow-lg transition-all duration-300 ${styleBg}`}
           >
             View All Projects
             <FiArrowRight className="ml-2" />

@@ -121,7 +121,14 @@ const Skill = ({isDarkMode,toggleDarkMode}) => {
 
   return (
     <section id="skill" className="section-padding py-8">
-      <div className="heading-lg text-center text-gray-100 mb-2 text-3xl">My Developer Toolkit</div>
+      <div
+  className={`heading-lg text-center mb-2 text-3xl ${
+    isDarkMode ? "text-gray-100" : "text-gray-700"
+  }`}
+>
+  My Developer Toolkit
+</div>
+
       <div className="h-1 w-20 bg-[#e86b80] mx-auto mb-8"></div>
 
       <div className="container mx-auto max-w-6xl relative z-10">
@@ -133,23 +140,25 @@ const Skill = ({isDarkMode,toggleDarkMode}) => {
           transition={{ duration: 1.5 }}
           viewport={{ once: true }}
         >
-          <div className={`rounded-full  p-1.5 shadow-md space-x-10 flex flex-wrap justify-center ${isDarkMode? "bg-[#25265c] border-2 border-[#35366c]" : " border-gray-100 "}`}>
+    <div className={`rounded-full border-2  p-1.5 shadow-md space-x-10 flex flex-wrap justify-center ${isDarkMode? "bg-[#25265c] border-[#35366c]" : " border-gray-100 bg-[#fdfdfa]"}`}>
           {categories.map((category) => (
-            <motion.button
-              key={category.id}
-              onClick={() => handleCategory(category.id)}
-              className={`
-                group  flex cursor-pointer items-center gap-2 px-6 py-3 rounded-full transition-transform capitalize font-medium
-                ${activeCategory === category.id
-                  ? "bg-gradient-to-br  text-gray-200 from-[#efafb9]  to-pink-800 shadow-lg shadow-primary/25 border-0"
-                  : 
-                  "bg-card/50 text-gray-300 "
-              }`}
-            >
-              {category.icon}
-              {category.name}
-            
-            </motion.button>
+    <motion.button
+    key={category.id}
+    onClick={() => handleCategory(category.id)}
+    className={`px-4 py-2 rounded-full flex items-center gap-1 text-[16 px]  cursor-pointer transition-all duration-300 border
+      ${
+        activeCategory === category.id
+          ? "bg-gradient-to-br from-[#efafb9] to-pink-800 text-gray-200 shadow-lg shadow-primary/25 border-0"
+          : `bg-card/50 border-0 ${
+              isDarkMode
+                ? "text-gray-300 hover:bg-gray-700/30"
+                : "text-gray-700 hover:bg-pink-100/50"
+            }`
+      }`}
+  >
+    {category.icon}
+    {category.name}
+  </motion.button>
           ))}
             </div>
         </motion.div>
@@ -194,10 +203,10 @@ const Skill = ({isDarkMode,toggleDarkMode}) => {
             className={`px-3 py-1 text-xs font-medium  rounded-full capitalize 
               ${
                 skill.category === "frontend"
-                  ? "bg-gradient-to-r from-pink-700/60 to-pink-500/60 text-pink-200"
+                  ? "bg-gradient-to-r from-pink-700/50 to-pink-500/50 text-pink-100"
                   : skill.category === "backend"
-                  ? "bg-gradient-to-r from-blue-700/60 to-blue-500/60 text-blue-200"
-                  : "bg-gradient-to-r from-green-700/60 to-green-500/60 text-green-200"
+                  ? "bg-gradient-to-r from-blue-700/60 to-blue-500/60 text-blue-100"
+                  : "bg-gradient-to-r from-green-700/60 to-green-500/60 text-green-100"
               }`}
           >
             {skill.category}
