@@ -81,7 +81,7 @@ export const Work = () => {
           transition={{ duration: 0.5 }}
           className="flex justify-center mb-16"
         >
-          <div className={`rounded-full p-1.5 shadow-md space-x-10 flex flex-wrap justify-center ${isDarkMode? "border-gray-700" : " border-gray-100 "}`}>
+          <div className={`rounded-full  p-1.5 shadow-md space-x-10 flex flex-wrap justify-center ${isDarkMode? "border-gray-700" : " border-gray-100 "}`}>
             {categories.map((category) => (
               <button
                 key={category.id}
@@ -99,7 +99,7 @@ export const Work = () => {
         </motion.div>
 
         {/* Projects grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3  place-items-center mx-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3  place-items-center mx-6 ">
           {filteredProjects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -107,7 +107,7 @@ export const Work = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className={`rounded-xl h-[380px] w-[460px] overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border group hover:-translate-y-2 ${isDarkMode? " bg-[#2e3267] border-gray-500/40 " : "bg-white border-gray-100 "}`}
+              className={`rounded-xl h-[380px] w-[460px] overflow-hidden mb-5 shadow-lg hover:shadow-xl transition-all duration-300 border group hover:-translate-y-2 ${isDarkMode? " bg-[#2e3267] border-gray-500/40 " : "bg-white border-gray-100 "}`}
             >
               <div className="relative h-56 overflow-hidden">
                 <img
