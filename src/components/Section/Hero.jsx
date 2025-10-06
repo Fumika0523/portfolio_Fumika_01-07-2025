@@ -6,52 +6,32 @@ import { FiGithub,FiLinkedin } from "react-icons/fi"
 import { containerVariants, itemVariants } from "../../utils/helper"
 
 const Hero = () => {
-      const { isDarkMode} = useTheme(); //This uses a custom hook useTheme() to get the current theme state. isDarkMode is a boolean indicating whether dark mode is enabled.
-      const {scrollY} = useScroll() //useScroll() is a Framer Motion hook that tracks the vertical scroll position. scrollY is a MotionValue that updates in real time as the user scrolls.
+      const { isDarkMode} = useTheme();
+      const {scrollY} = useScroll()
       const heroY = useTransform(scrollY,[0,500],[0,-100])
-      //useTransform() maps the scroll range [0, 500] to the output range [0, -100].As the user scrolls from 0 to 500 px, heroY will animate from 0 to -100.Typically used to create parallax or scroll-linked animation effects.
-      // When a nav item is clicked, this function scrolls smoothly to the section with that ID.
+
       const scrollToSection = (sectionId)=>{
         const element = document.getElementById(sectionId)
         if(element){
           element.scrollIntoView({behavior:"smooth"})
         }}
-   
+
       const textVariants = {
-        hidden:{
-          y:20,opacity:0 },
-          visible:{
-            y:0,
-            opacity:1,
-            transition:{
-              duration:0.6,
-              ease:"easeOut"
-            }
-          }
+        hidden:{ y:20, opacity:0 },
+        visible:{ y:0, opacity:1, transition:{ duration:0.6, ease:"easeOut" } }
       };
 
       const imageVariants = {
         hidden:{x:50,opacity:0},
-        visible:{
-          x:0,
-          opacity:1,
-          transition:{
-          duration:1,
-          ease:"easeOut",
-          delay:0.5,
-        }
+        visible:{ x:0, opacity:1, transition:{ duration:1, ease:"easeOut", delay:0.5 } }
       }
-    }
 
       const styleBg = isDarkMode
-        ? "bg-gradient-to-br from-[#e86b80]  to-pink-700/80 text-gray-200 hover:bg-pink-900/60"
-        : "bg-gradient-to-br from-pink-400/60 to-[#e86b80] text-white";
-
+        ? "bg-gradient-to-br from-[#E56389] to-[#6F50F1]/80 text-gray-200 hover:bg-[#6F50F1]/60"
+        : "bg-gradient-to-br from-[#7C5CFF]/60 to-[#E56389] text-white";
 
   return (
     <div >
-
-      {/* Hero Section */}
       <motion.section
       id="home"
       style={{y:heroY}}
@@ -69,7 +49,7 @@ const Hero = () => {
           ease:"linear",
         }}
         className={`absolute top-20 right-20 w-64 h-64 rounded-full blur-3xl opacity-10 ${
-          isDarkMode ? "bg-[#e86b80]" :"bg-[#e86b80]"
+          isDarkMode ? "bg-[#E56389]" :"bg-[#E56389]"
         } `}/>
 
         <motion.div
@@ -83,40 +63,39 @@ const Hero = () => {
           ease:"linear",
         }}
         className={`absolute bottom-20 left-20 w-48 h-48 rounded-full blur-3xl opacity-10 ${
-          isDarkMode ? "bg-purple-500" :"bg-purple-400"
+          isDarkMode ? "bg-[#7C5CFF]" :"bg-[#6F50F1]"
         } `}/>
-        </div> 
+        </div>
 
         <div className="max-w-7xl mx-auto  w-full z-10 mt-20">
-          {/* Mobile Layout-centered */}
-        <div className="block lg:hidden">
+          <div className="block lg:hidden">
             <motion.div
             initial="hidden"
             animate="visible"
             variants={containerVariants}
             className="text-center"
             >
-                {/* Tech Stack - Mobile */}
+
           <motion.div
               variants={itemVariants}
-              className=" flex justify-center items-cenyer space-x-6 text-xs uppercase tracking-widest flex-wrap pb-20">
-                <span className={isDarkMode? "text-[#f5d56dac]"  : "text-gray-500"}>
+              className=" flex justify-center items-cenyer space-x-6 text-[16px] uppercase tracking-widest flex-wrap pb-20">
+                <span className={isDarkMode? "text-[#f7c848eb]"  : "text-gray-500"}>
                   Frontend
                 </span>
-                <span className={isDarkMode? "text-[#f5d56dac]" : "text-gray-400"}>
+                <span className={isDarkMode? "text-[#F7C948AA]" : "text-gray-400"}>
                   .
                 </span>
-                <span className={isDarkMode? "text-[#f5d56dac]"  : "text-gray-500"}>
+                <span className={isDarkMode? "text-[#f7c848eb]"  : "text-gray-500"}>
                   Backend
                 </span>
-                <span className={isDarkMode? "text-[#f5d56dac]" : "text-gray-400"}>
+                <span className={isDarkMode? "text-[#F7C948AA]" : "text-gray-400"}>
                   .
                 </span>
-                <span className={isDarkMode? "text-[#f5d56dac]"  : "text-gray-500"}>
+                <span className={isDarkMode? "text-[#f7c848eb]"  : "text-gray-500"}>
                   Freelance
                 </span>
           </motion.div>
-            {/* Profile Image - Mobile */}
+
             <motion.div variants={imageVariants}
             className="mb-8">
               <div className="w-35 h-35 mx-auto mb-16 relative">
@@ -124,48 +103,48 @@ const Hero = () => {
                 whileHover={{scale:1.05}}
                 className={`w-full h-32 rounded-2xl overflow-hidden 
                   ${
-                    isDarkMode ? "border-[#e86b80]":"border-gray-300"
+                    isDarkMode ? "border-[#E56389]":"border-gray-300"
                   } shadow-2xl`}>
                     <img
                     src={"https://img.freepik.com/premium-vector/software-developer-vector-illustration-communication-technology-cyber-security_1249867-5464.jpg?semt=ais_hybrid&w=740"} alt="Profile" className="w-full h-full object"/>
                     </motion.div>
 
-                    {/* Decorative Ring */}
-                    <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                    className="absolute -inset-2 rounded-2xl border border-[#f07fb0]"
-                  />
+              <motion.div
+               animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                className="absolute -inset-2 rounded-2xl border border-[#FF9CB3]"  />
                         </div>
               </motion.div>
 
-              {/* Content - Mobile */}
               <motion.div
               variants={textVariants}
-              className={` text-sm uppercase tracking-widest ${isDarkMode ? "text-[#a1a09d] " : "text-gray-300" } mb-4`}
+              className={` text-xl uppercase font-bold tracking-widest ${isDarkMode ? "text-[#f7f5b9] " : "text-yellow-600" } mb-4`}
               >
                 Full Stack Developer
               </motion.div>
-     <motion.h1 variants={itemVariants}
+
+            <motion.h1 variants={itemVariants}
             className="text-4xl xl:text-4xl font-light mb-8 ">
               <span className={`${isDarkMode ? "text-white":"text-gray-900"}`}>
-          Code That 
-              <span className={`mx-2.5 text-[#e86b80] font-medium`}>
+              Code That 
+              <span className={`mx-2.5 text-[#E56389] font-medium`}>
               Moves
               </span>    
               People  
               </span>
             </motion.h1>
 
+              {/* Description */}
               <motion.p
               variants={itemVariants}
-              className={`text-center md:text-lg mb-5 ${isDarkMode ? "text-gray-300/60" : "text-gray-400" }`}>
+              className={`text-center md:text-lg mb-5 ${isDarkMode ? "text-[#dad2d9]" : "text-gray-800" }`}>
               I'm a junior full-stack developer currently building my skills in modern web development. I enjoy working with technologies like React, Node.js, and MongoDB, and I’m passionate about creating clean, functional, and responsive web applications. While I'm still learning, I'm committed to writing better code every day and building real-world projects that challenge and grow my abilities.
               </motion.p>
 
-              {/* CTA Buttons - Mobile */}
+              {/* Buttons */}
               <motion.div variants={itemVariants}
               className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+                {/* View Work */}
               <motion.button
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.98 }}
@@ -174,16 +153,20 @@ const Hero = () => {
               View Work
             </motion.button>
 
+                  {/* Contact */}
                 <motion.button
                 whileHover={{y:-2}}
                 whileTap={{scale:0.98}}
                 onClick={()=> scrollToSection("contact")}
-                className={`border ${isDarkMode? "border-2 border-[#8b868a] hover:border-yellow-200/80 hover:text-yellow-300" : "border-gray-300 hover:border-gray-400 text-[#f5d56dac]"} px-8 py-3 rounded-full text-sm uppercase tracking-wider font-medium transition-all duration-300`}>
-                  Get in Touch
+                className={`
+                  w-40 h-12 rounded-full flex items-center justify-center shadow-md ${isDarkMode?
+      
+                " border-pink-200 border-2 text-pink-300 hover:border-gray-200" : 
+                "border-gray-300 hover:border-pink-400 text-[#F7C948AA]"} px-8 py-3 rounded-full text-sm uppercase tracking-wider font-medium transition-all duration-300`}>
+                  Contact
                 </motion.button>
               </motion.div>
 
-              {/* Social Links - Mobile */}
               <motion.div variants={imageVariants}
             className="flex justify-center space-x-6 mb-8"
           >
@@ -207,14 +190,11 @@ const Hero = () => {
             ))}
               </motion.div>
 
-
         
         </motion.div>
         </div>
 
-        {/* DeskTop Layout - Split */}
         <div className="hidden lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center mx-9">
-          {/* Left Column - Content*/}
           <motion.div
           initial="hidden"
           animate="visible"
@@ -222,20 +202,20 @@ const Hero = () => {
           className="text-center">
             <motion.div
               variants={textVariants}
-              className={`text-lg uppercase tracking-widest mb-6 ${
+              className={`text-2xl font-bold uppercase tracking-widest mb-6 ${
                 isDarkMode
-                  ? "text-[#a1a09d] "
-                  : "text-gray-600"
+                  ? "text-[#F7C948] "
+                  : "text-[#fdbc0c] "
               }`}
             >
               Full Stack Developer
             </motion.div>
 
             <motion.h1 variants={itemVariants}
-            className="text-4xl xl:text-4xl font-light mb-8 ">
+            className="text-5xl xl:text-4xl font-light mb-8 ">
               <span className={`${isDarkMode ? "text-white":"text-gray-900"}`}>
           Code That 
-              <span className={`mx-2.5 text-[#e86b80] font-medium`}>
+              <span className={`mx-2.5 text-[#E56389] font-medium`}>
               Moves
               </span>    
               People  
@@ -244,32 +224,34 @@ const Hero = () => {
 
             <motion.p
               variants={itemVariants}
-              className={`text-xl  ${isDarkMode ? "text-pink-100/80" : "text-gray-800" } mb-12 font-light leading-relaxed text-center border-amber-300 `}>
+              className={`text-xl  ${isDarkMode ? "text-[#FFDCE6]/80" : "text-gray-800" } mb-12 font-light leading-relaxed text-center`}>
               I'm a junior full-stack developer currently building my skills in modern web development. I enjoy working with technologies like React, Node.js, and MongoDB, and I’m passionate about creating clean, functional, and responsive web applications. While I'm still learning, I'm committed to writing better code every day and building real-world projects that challenge and grow my abilities.
             </motion.p>
-            {/* CTA Button - DeskTop */}
+
             <motion.div
             variants={itemVariants} className="flex justify-center gap-6 mb-8 ">
-  
+
           <motion.button
           whileHover={{ y: -2 }}
           whileTap={{ scale: 0.98 }}
+               onClick={()=> scrollToSection("work")}
           className={`w-40 h-12 rounded-full flex items-center justify-center bg-gradient-to-br shadow-md ${isDarkMode
-          ? " from-[#e18191]  to-pink-600 text-gray-200"
-          : "  from-pink-400/60  to-[#e86b80] text-gray-100"}`}>
+          ? "bg-gradient-to-br text-gray-200 from-[#efafb9]  to-pink-800/80 shadow-lg shadow-primary/25 border-0"
+          : "bg-card/50 text-muted-foreground hover:bg-pink-400/30 hover:border-pink-400/30 hover:text-white"}`}>
           View Work
         </motion.button>
-              
-                <motion.button
-                whileHover={{y:-2}}
-                whileTap={{scale:0.98}}
-                onClick={()=> scrollToSection("contact")}
-                className={`border ${isDarkMode? "border-2 border-[#8b868a] hover:border-yellow-200/80 hover:text-yellow-300" : "border-gray-300 hover:border-gray-400 text-[#f5d56dac]"} px-8 py-3 rounded-full text-sm uppercase tracking-wider font-medium transition-all duration-300`}>
-                  Get in Touch
-                </motion.button>
-            </motion.div>
 
-            {/* Social Links - Desktop */}
+          <motion.button
+            whileHover={{y:-2}}
+            whileTap={{scale:0.98}}
+            onClick={()=> scrollToSection("contact")}
+            className={`border ${isDarkMode? "border-2 border-[#8b868a] hover:border-[#F7C948]/80 hover:text-[#F7C948] text-yellow-300"
+              : 
+            "border-gray-300 hover:border-pink-400 text-[#F7C948AA]"} px-8 py-3 rounded-full text-sm uppercase tracking-wider font-medium transition-all duration-300`}>
+                  Get in Touch
+            </motion.button>
+        </motion.div>
+
               <motion.div variants={imageVariants}
             className="flex items-center justify-center space-x-4 mb-12"
           >
@@ -295,32 +277,30 @@ const Hero = () => {
 
           </motion.div>
 
-          {/* Right Layout - Solit */}
           <motion.div
           initial="hidden"
           animate="visible"
           variant={imageVariants}
           className="flex justify-center ">
             <div className="relative">
-              {/* Tech Stack - DeskTop */}
               <motion.div variants={itemVariants}
               className="flex items-center justify-center space-x-8 text-md uppcercase tracking-widest absolute -top-40  ">
-                <span className={isDarkMode ? "text-[#fee884]" : "text-gray-500"}>
+                <span className={isDarkMode ? "text-[#F7C948]" : "text-gray-500"}>
                   Frontend
                 </span>
-                <span className={isDarkMode ? "text-pink-300"  : "text-gray-400"}>
+                <span className={isDarkMode ? "text-[#FF9CB3]"  : "text-gray-400"}>
                   .
                 </span>
-                <span className={isDarkMode ? "text-[#fee884]": "text-gray-500"}>
+                <span className={isDarkMode ? "text-[#F7C948]": "text-gray-500"}>
                   Beckend
                 </span>
-                <span className={isDarkMode ? "text-pink-200" : "text-gray-400"}>
+                <span className={isDarkMode ? "text-[#FF9CB3]" : "text-gray-400"}>
                   .
                 </span>
-                <span className={isDarkMode ? "text-[#fee884]"  : "text-gray-500"}>
+                <span className={isDarkMode ? "text-[#F7C948]"  : "text-gray-500"}>
                   Freelance
                 </span>
-                <span className={isDarkMode ? "text-pink-200" : "text-gray-400"}>
+                <span className={isDarkMode ? "text-[#FF9CB3]" : "text-gray-400"}>
                   .
                 </span>
               </motion.div>
@@ -329,30 +309,24 @@ const Hero = () => {
               className={`w-80 h-75 rounded-3xl overflow-hidden border-4 ${isDarkMode ? "border-gray-800" : "border-gray-300"} shadow-2xl`}>
               <img
                src={"https://img.freepik.com/premium-vector/software-developer-vector-illustration-communication-technology-cyber-security_1249867-5464.jpg?semt=ais_hybrid&w=740"} alt="Profile" className="w-full h-full object-cover"/>
-              </motion.div> 
+              </motion.div>
 
-              {/* Decorative elements */}
               <motion.div 
               animate={{rotate:360}}
               transition={{duration:20, repeat:Infinity, ease:"linear"}}
-              className="absolute -inset-4 rounded-3xl  border-2 border-[#fbd74a]"/>
+              className="absolute -inset-4 rounded-3xl  border-2 border-[#F7C948]"/>
 
              <motion.div 
             animate={{rotate:-360}}
              transition={{duration:30, repeat:Infinity, ease:"linear"}}
-             className="absolute -inset-8 rounded-3xl border-2 border-[#f89fb5]"/>
+             className="absolute -inset-8 rounded-3xl border-2 border-[#FF9CB3]"/>
             </div>
           </motion.div>
         </div>
     </div>
-        
-  
       </motion.section>
     </div>
   )
 }
 
 export default Hero
-
-
-

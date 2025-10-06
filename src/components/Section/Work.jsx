@@ -2,6 +2,7 @@ import React from 'react'
 import { useTheme } from "../../context/ThemeContext"
 import { useState } from "react";
 import MovieStationImg from "../../assets/image/Moviestation.png";
+import weatheAppImg from "../../assets/image/WeatherApp.png";
 import { motion } from "framer-motion";
 import { FiGithub, FiExternalLink, FiCode, FiFolder, FiArrowRight } from "react-icons/fi";
 import { IoCodeSlashSharp } from "react-icons/io5";
@@ -26,13 +27,23 @@ export const Work = () => {
     {
       id: 1,
       title: "E-commerce Platform",
-      description: "A full-stack Movie e-commerce platform with user authentication, product management including download invoice",
+      description: "MovieStation is a responsive movie app where users can browse, search, filter, and save favorites. Built with React, it offers smooth navigation and dynamic film details for an engaging experience.",
       image: MovieStationImg,
       github_frontend: "https://github.com/Fumika0523/FrontEnd_MovieStation_11-09-2024",
       github_backend:"https://github.com/Fumika0523/FrontEnd_MovieStation_11-09-2024",
-      demo: "#",
+      demo: "https://moviestation23.netlify.app/",
       category: "fullstack",
       tags: ["Frontend Code", "Backend Code"],
+    },
+       {
+      id: 2,
+      title: "Weather App",
+      description: "Responsive weather app showing real-time forecasts, hourly trends, and moon phases. Built with React, Tailwind, and Chart.js for smooth visuals and live OpenWeatherMap data.",
+      image: weatheAppImg,
+      github_frontend: "https://github.com/Fumika0523/WeatherApp_08-07-2025",
+      demo: "https://weatherapp-fm.netlify.app/",
+      category: "frontend",
+      tags: ["Frontend Code"],
     },
   
   ];
@@ -45,7 +56,7 @@ export const Work = () => {
     
     <>
 <section
-    id="work" className={` section-padding  py-8`}>
+    id="work" className={` section-padding py-8`}>
        <div className="container mx-auto container-padding">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -54,9 +65,10 @@ export const Work = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="heading-lg mb-2 text-3xl">Featured Projects</h2>
+          <h2 className={` heading-lg mb-2 text-3xl ${isDarkMode ? "text-gray-300" : "text-gray-800" } `}>
+          Featured Projects</h2>
           <div className="h-1 w-20 bg-[#e86b80] mx-auto"></div>
-          <p  className={`${isDarkMode ? "text-gray-400" : "text-gray-800" } my-5 font-light leading-relaxed `}>
+          <p  className={`${isDarkMode ? "text-gray-300" : "text-gray-800" } my-5 font-light leading-relaxed `}>
             A collection of projects I&apos;ve worked on, showcasing my skills and experience.
           </p>
         </motion.div>
@@ -69,15 +81,15 @@ export const Work = () => {
           transition={{ duration: 0.5 }}
           className="flex justify-center mb-16"
         >
-          <div className={`rounded-full p-1.5 shadow-md space-x-10 flex flex-wrap justify-center ${isDarkMode? "border-gray-700" : "bg-white border-gray-100 "}`}>
+          <div className={`rounded-full p-1.5 shadow-md space-x-10 flex flex-wrap justify-center ${isDarkMode? "border-gray-700" : " border-gray-100 "}`}>
             {categories.map((category) => (
               <button
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
                 className={` px-8 py-3 rounded-full  text-md font-medium transition-all duration-300 ${
                   activeCategory === category.id
-                   ? "bg-gradient-to-br text-gray-200 from-[#efafb9]  to-pink-800/80 shadow-lg shadow-primary/25"
-                : "bg-card/50 border border-gray-400/50 text-muted-foreground hover:bg-pink-400/30 hover:border-pink-400/30 hover:text-white"
+                   ? "bg-gradient-to-br text-gray-200 from-[#efafb9]  to-pink-800/90 shadow-lg shadow-primary/25"
+                : "bg-card/50 border border-gray-400/50 text-gray-300/80 text-muted-foreground hover:bg-pink-300/70 hover:border-pink-400/30 hover:text-white"
                 }`}
               >
                 {category.label}
@@ -87,7 +99,7 @@ export const Work = () => {
         </motion.div>
 
         {/* Projects grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8 place-items-center mx-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3  place-items-center mx-6">
           {filteredProjects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -95,9 +107,9 @@ export const Work = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className={`rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border  group hover:-translate-y-2 ${isDarkMode? " bg-[#2e3267] border-gray-500/40 " : "bg-white border-gray-100 "}`}
+              className={`rounded-xl h-[380px] w-[460px] overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border group hover:-translate-y-2 ${isDarkMode? " bg-[#2e3267] border-gray-500/40 " : "bg-white border-gray-100 "}`}
             >
-              <div className="relative h-56 w-full overflow-hidden">
+              <div className="relative h-56 overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
@@ -106,26 +118,31 @@ export const Work = () => {
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
+               
                 <div className="absolute top-4 right-4 flex space-x-2">
-                  {/* GitHub Icon */}
+
                   <a
-                    href={project.github}
+                    href={project.github_frontend}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-13 h-9 rounded-full gap-1  bg-gray-200/40  items-center backdrop-blur-sm flex  justify-center text-white hover:bg-white hover:text-pink-600 transition-colors duration-300"
-                    aria-label={`View GitHub repository for ${project.title}`}
+                    className="w-13 h-9 rounded-full gap-1  bg-gray-200/40  items-center backdrop-blur-sm flex  justify-center text-white hover:bg-white/90 hover:text-pink-600 transition-colors duration-300"
+                    aria-label={`View GitHub front-end repository for ${project.title}`}
                   >
                     <FiGithub size={16} /> <IoCodeSlashSharp size={16}/>
                   </a>
-                      <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-13 h-9 rounded-full bg-gray-200/40 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white hover:text-pink-600 transition-colors gap-0.5 duration-300"
-                    aria-label={`View live demo for ${project.title}`}
-                  >
-                        <FiGithub size={16} /> <AiFillDatabase />
-                  </a>
+
+                   {project.github_backend ? (
+                    <a
+                      href={project.github_backend}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-13 h-9 rounded-full bg-gray-200/40 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/90 hover:text-pink-600 transition-colors gap-0.5 duration-300"
+                      aria-label={`View GitHub back-end repository for ${project.title}`}
+                    >
+                      <FiGithub size={16} /> <AiFillDatabase />
+                    </a>
+                  ) : null}
+
                 </div>
                 <div className="absolute bottom-4 left-4 right-4 ">
                   <h3 className="text-xl font-bold text-white mb-1  transition-colors duration-300">
@@ -133,8 +150,8 @@ export const Work = () => {
                   </h3>
                 </div>
               </div>
-              <div className="p-6">
-                <p className={`  mb-4  ${isDarkMode? " text-gray-200/80" : "text-gray-400"}`}
+              <div className="p-4">
+                <p className={` mb-4  ${isDarkMode? " text-gray-200/80" : "text-gray-400"}`}
                    >
                   {project.description}
                 </p>
@@ -159,7 +176,7 @@ export const Work = () => {
           ))}
         </div>
 
-        {/* View All Projects button */}
+                {/* View All Projects button */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -182,3 +199,4 @@ export const Work = () => {
     </>
   )
 }
+export default Work

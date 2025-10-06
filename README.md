@@ -17,3 +17,6 @@ Automatically slide the Skilss icon
 
 - featured project:
 Live demo url , Front & Backend Github URL
+
+
+<!-- ParticleLegacy is a small React wrapper that dynamically loads the vanilla particles.js script at runtime, waits until the DOM is ready, then runs particlesJS("particles-js", config) to draw a full-screen particle canvas behind your app. -->

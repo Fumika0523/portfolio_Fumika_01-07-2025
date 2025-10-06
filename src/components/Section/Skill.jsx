@@ -248,8 +248,8 @@ import { Code2 } from "lucide-react";
 import { motion } from "framer-motion";
 import React from "react";
 
-const Skill = () => {
-  const { isDarkMode } = useTheme("");
+const Skill = ({isDarkMode,toggleDarkMode}) => {
+
   const styleBg = isDarkMode
     ? "bg-gradient-to-br text-gray-200 from-[#e86b80]  to-pink-700/80"
     : "bg-gradient-to-br text-gray-100 from-pink-400/60  to-[#e86b80]";
@@ -354,7 +354,7 @@ const Skill = () => {
 
   return (
     <section id="skill" className="section-padding py-8">
-      <div className="heading-lg text-center mb-2 text-3xl">My Developer Toolkit</div>
+      <div className="heading-lg text-center text-gray-100 mb-2 text-3xl">My Developer Toolkit</div>
       <div className="h-1 w-20 bg-[#e86b80] mx-auto mb-8"></div>
 
       <div className="container mx-auto max-w-6xl relative z-10">
@@ -371,10 +371,11 @@ const Skill = () => {
               key={category.id}
               onClick={() => handleCategory(category.id)}
               className={`
-                group flex cursor-pointer items-center gap-2 px-6 py-3 rounded-full transition-transform capitalize font-medium border border-gray-400/50 
+                group bg-pink-200 flex cursor-pointer items-center gap-2 px-6 py-3 rounded-full transition-transform capitalize font-medium
                 ${activeCategory === category.id
-                  ? "bg-gradient-to-br text-gray-200 from-[#efafb9]  to-pink-800/80 shadow-lg shadow-primary/25 border-0"
-                  : "bg-card/50 text-muted-foreground hover:bg-pink-400/30 hover:border-pink-400/30 hover:text-white"
+                  ? "bg-gradient-to-br text-gray-200 from-[#efafb9]  to-pink-800 shadow-lg shadow-primary/25 border-0"
+                  : 
+                  "bg-card/50 text-muted-foreground bg-pink-200/80   hover:text-gradient-to-br from-[#efafb9]  to-pink-800 "
               }`}
             >
               {category.icon}
@@ -384,34 +385,52 @@ const Skill = () => {
         </motion.div>
 
         {/* Skills */}
-        <motion.div
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-6"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          key={activeCategory}
-        >
-          {filteredSkills.map((skill) => (
-            <motion.div key={skill.name} variants={cardVariants} className="group relative">
-              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm border border-gray-500/50 hover:border-pink-300/30 transition-all duration-500 p-4">
-                <div className="flex flex-col items-center text-center">
-                  <div className="p-2 rounded-xl group-hover:scale-110 transition-transform duration-300">
-                    {skillIcons[skill.name] || <Code2 className="w-8 h-8 text-muted-foreground" />}
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-lg group-hover:text-primary transition-colors mb-2">
-                      {skill.name}
-                    </h3>
-                    <span className="px-3 py-1 text-xs font-medium border rounded-full capitalize">
-                      {skill.category}
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary/20 to-pink-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl -z-10" />
-            </motion.div>
-          ))}
-        </motion.div>
+      {/* Skills */}
+<motion.div
+  className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-6"
+  variants={containerVariants}
+  initial="hidden"
+  animate="visible"
+  key={activeCategory}
+>
+  {filteredSkills.map((skill) => (
+    <motion.div
+      key={skill.name}
+      variants={cardVariants}
+      className="group relative"
+    >
+      {/* Card container */}
+      <div
+        className={`relative overflow-hidden rounded-2xl border transition-all duration-500 p-4 shadow-sm
+          ${isDarkMode
+            ? "bg-[#25265c] border-gray-500/70 text-gray-300"
+            : "bg-white  border-gray-200"
+          }`}
+      >
+        {/* Hover glow overlay */}
+        <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#efafb9]/20 to-[#ff6ea4]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl z-0 pointer-events-none" />
+
+        {/* Card content */}
+        <div className="relative z-10 flex flex-col items-center text-center">
+          <div className="p-2 rounded-xl group-hover:scale-110 transition-transform duration-300">
+            {skillIcons[skill.name] || (
+              <Code2 className="w-8 h-8 text-muted-foreground" />
+            )}
+          </div>
+          <div>
+            <h3 className="font-bold text-lg group-hover:text-primary transition-colors mb-2">
+              {skill.name}
+            </h3>
+            <span className="px-3 py-1 text-xs font-medium border rounded-full capitalize">
+              {skill.category}
+            </span>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  ))}
+</motion.div>
+
       </div>
     </section>
   );

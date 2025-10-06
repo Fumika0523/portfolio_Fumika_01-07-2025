@@ -88,6 +88,7 @@ const Contact = () => {
     ? "bg-gradient-to-br text-gray-200 from-[#e86b80] to-pink-700/80"
     :
     "bg-gradient-to-br text-gray-100 from-pink-400/60 to-[#e86b80]"
+    
   return (
     <section id="contact" className={`py-8 section-padding `}>
       <div className="container mx-auto container-padding">
@@ -99,9 +100,9 @@ const Contact = () => {
           className="text-center mb-16"
         >
        
-          <h2 className="heading-lg mb-2 text-3xl">Get In Touch</h2>
+          <h2 className={` heading-lg mb-2 text-3xl ${isDarkMode ? "text-gray-300" : "text-gray-800" } `}>Get In Touch</h2>
           <div className="h-1 w-20 bg-[#e86b80] mx-auto"></div>
-          <p className={`paragraph  max-w-2xl mx-auto mt-4 ${isDarkMode ? "text-gray-400 " : "text-gray-700"}`}>
+          <p className={`${isDarkMode ? "text-gray-300" : "text-gray-800" } my-5 font-light leading-relaxed `}>
             I'm always open to new opportunities and projects. Feel free to reach out if you want to collaborate or have any questions.
           </p>
         </motion.div>

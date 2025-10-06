@@ -1,64 +1,34 @@
-// import React from 'react'
-// import {ThemeProvider} from "./context/ThemeContext"
-// import Navbar from './components/Section/Navbar'
-// import Hero from './components/Section/Hero'
-// import Skill from './components/Section/Skill'
-// import Contact from './components/Section/Contact'
-// import { Work } from './components/Section/Work'
-
-// const App = () => {
-//   return (
-//    <>
-//     <ThemeProvider>
-//         <div className='h-screen'>
-//           <Navbar/>
-//           <Hero/>
-//           <Skill/>
-//           <Work/>
-//           <Contact/>
-//         </div>
-
-//     </ThemeProvider>
-//    </>
-//   )
-// }
-
-// export default App
-
-
 import React from "react";
 import { ThemeProvider, useTheme } from "./context/ThemeContext";
 import Navbar from "./components/Section/Navbar";
 import Hero from "./components/Section/Hero";
 import Skill from "./components/Section/Skill";
+import Work from "./components/Section/Work";
 import Contact from "./components/Section/Contact";
-import { Work } from "./components/Section/Work";
+import Particle from "./components/Prticle";
 
 const AppContent = () => {
   const { isDarkMode, toggleDarkMode } = useTheme();
 
   return (
-<>
-      {/* All components now inherit dark mode */}
-            <div className={`mh-screen transition-all duration-500 ${
-      isDarkMode? "bg-[#25265c] text-white":"bg-gray-50 text-gray-900"
-    }`}>
-        <Navbar toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
-        <Hero />
-        <Skill />
-        <Work />
-        <Contact />
-      </div>
-</>
+   <div className={`relative min-h-screen ${isDarkMode ? "bg-[#25265c]" : "bg-orange-50"}`}>
+  <Particle isDarkMode={isDarkMode} />
+  <div className="relative z-10">
+    <Navbar toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
+    <Hero toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
+    <Skill toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
+    <Work toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode}/>
+    <Contact  toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode}/>
+  </div>
+</div>
+
   );
 };
 
-const App = () => {
-  return (
-    <ThemeProvider>
-      <AppContent />
-    </ThemeProvider>
-  );
-};
+const App = () => (
+  <ThemeProvider>
+    <AppContent />
+  </ThemeProvider>
+);
 
 export default App;
