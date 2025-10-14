@@ -3,6 +3,7 @@ import { useTheme } from "../../context/ThemeContext"
 import { useState } from "react";
 import MovieStationImg from "../../assets/image/Moviestation.png";
 import weatheAppImg from "../../assets/image/WeatherApp.png";
+import TaskToDo from "../../assets/image/TaskToDo.png"
 import { motion } from "framer-motion";
 import { FiGithub, FiExternalLink, FiCode, FiFolder, FiArrowRight } from "react-icons/fi";
 import { IoCodeSlashSharp } from "react-icons/io5";
@@ -45,7 +46,16 @@ export const Work = () => {
       category: "frontend",
       tags: ["Frontend Code"],
     },
-  
+         {
+      id: 3,
+      title: "Task to do list",
+      description: "Responsive weather app showing real-time forecasts, hourly trends, and moon phases. Built with React, Tailwind, and Chart.js for smooth visuals and live OpenWeatherMap data.",
+      image: TaskToDo,
+      github_frontend: "https://github.com/Fumika0523/Task_To_Do_List-09-10-2025",
+      demo: "https://task-to-do-list-23.netlify.app/",
+      category: "frontend",
+      tags: ["Frontend Code"],
+    },
   ];
 
   // Filter projects based on active category
