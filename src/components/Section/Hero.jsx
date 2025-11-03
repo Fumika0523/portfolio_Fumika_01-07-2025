@@ -242,7 +242,8 @@ const Hero = () => {
           <motion.a
             whileHover={{y:-2}}
              href="/Fumika_Mikami_CV.pdf"
-            download="Fumika_Mikami_CV.pdf"
+            target="_blank" 
+             rel="noopener noreferrer"    
             whileTap={{scale:0.98}}
             // onClick={()=> scrollToSection("contact")}
             className={`border flex flex-row ${isDarkMode? "border-2 border-[#8b868a] hover:border-[#F7C948]/80 hover:text-[#F7C948] text-yellow-300"
