@@ -154,17 +154,19 @@ const Hero = () => {
             </motion.button>
 
                   {/* Contact */}
-                <motion.button
-                whileHover={{y:-2}}
-                whileTap={{scale:0.98}}
-                onClick={()=> scrollToSection("contact")}
-                className={`
-                  w-40 h-12 rounded-full flex items-center justify-center shadow-md ${isDarkMode?
-      
-                " border-pink-200 border-2 text-pink-300 hover:border-gray-200" : 
-                "border-gray-300 hover:border-pink-400 text-[#F7C948AA]"} px-8 py-3 rounded-full text-sm uppercase tracking-wider font-medium transition-all duration-300`}>
-                  Contact
-                </motion.button>
+              <motion.a
+            whileHover={{y:-2}}
+             href="/Fumika_Mikami_CV.pdf"
+            target="_blank" 
+             rel="noopener noreferrer"    
+            whileTap={{scale:0.98}}
+            // onClick={()=> scrollToSection("contact")}
+            className={`border flex flex-row ${isDarkMode? "border-2 border-[#8b868a] hover:border-[#F7C948]/80 hover:text-[#F7C948] text-yellow-300"
+              : 
+            "border-gray-300 hover:border-pink-400 text-[#e3a90bd4]"} px-8 py-3 rounded-full text-sm uppercase tracking-wider font-medium transition-all duration-300`}>
+                   View my CV
+                 <ArrowDown size={18} />  
+            </motion.a>
               </motion.div>
 
               <motion.div variants={imageVariants}
