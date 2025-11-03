@@ -54,9 +54,16 @@ export const Work = () => {
       github_frontend: "https://github.com/Fumika0523/Task_To_Do_List-09-10-2025",
       demo: "https://task-to-do-list-23.netlify.app/",
       category: "frontend",
-      tags: ["Frontend Code"],
+      tags: ["Frontend Code"], //When you click "New Task", and the pie chart should not be hidden. scroll bar should not shown. at the top, light/night mode change. only 1 icon - sun/moon
     },
   ];
+  // Simple Project should finish first for Portfolio
+  // React Project (Tailwind, HTML/CSS, Bootsrap) - Expense Manager -       Chart & filter,Recipe finder - Adding to the favourite. 
+  // 1Day: Landing pages(static website, 1)HTML,2)Tailwind,3)Bootsrap) -- All have CDN, 
+  // Simple - Gaming application - tic tak toe, card game, flipping game
+  //30Days: job board site
+  /////////////////////////////////////////////////////////
+  //Other project:Dont scrub any project, all project should be here
 
   // Filter projects based on active category
   const filteredProjects = activeCategory === "all" 

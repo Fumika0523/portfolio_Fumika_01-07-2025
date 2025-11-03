@@ -336,3 +336,19 @@ const Contact = () => {
 };
 
 export default Contact; 
+
+// Contact message, should be saved in DB
+// Name and Email should be filled
+// WHen you click the submit - email should be pop up >> You dont need to check your DB, you can receive in your Gemail
+
+// View ork / View my CV
+// View CV should show in a new tab
+
+// add soft skillss - Team collaboration, communication.....
+/// Back end - Mongoose  << DONE
+// Tool - Deploy in Vercel << DONE
+
+// Full stack , Front end, Backend, Landing, All(Random order the show)
+// create account in stack-overflow. ask question.
+
+// Once you finish the all projects - >>> How you can contribute to the Open projects in Github << you can put as highlight

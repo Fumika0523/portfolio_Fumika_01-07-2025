@@ -1,4 +1,4 @@
-
+import React from "react";
 import { useTheme } from "../../context/ThemeContext"
 import { IoLogoNodejs } from "react-icons/io";
 import { useState, useMemo, useCallback, useEffect, useRef } from "react";
@@ -9,11 +9,12 @@ import {
   SiHtml5, SiCss3, SiJavascript,
   SiReact, SiTailwindcss,
   SiNodedotjs, SiExpress, SiMongodb, SiGithub,
-  SiPostman, SiNetlify, SiRender, SiBootstrap, SiMui, SiJson, SiNextdotjs, SiFramer, SiRedux
+  SiPostman, SiNetlify, SiRender, SiBootstrap, SiMui, SiJson, SiNextdotjs, SiFramer, SiRedux, SiMongoosedotws 
 } from 'react-icons/si';
+import { IoLogoVercel } from "react-icons/io5";
 import { Code2 } from "lucide-react";
 import { motion } from "framer-motion";
-import React from "react";
+
 
 const Skill = ({isDarkMode,toggleDarkMode}) => {
 
@@ -30,11 +31,13 @@ const Skill = ({isDarkMode,toggleDarkMode}) => {
     "Node.js": <SiNodedotjs className="w-8 h-8" style={{ color: "#339933" }} />,
     Express: <SiExpress className={`w-6 h-6 ${isDarkMode ? "text-gray-300" : "text-gray-800"}`} />,
     MongoDB: <SiMongodb className="w-8 h-8" style={{ color: "#47A248" }} />,
+    Mongoose: <SiMongoosedotws  className="w-8 h-8" style={{ color: "#FF5000" }} />,
     "Git/GitHub": <SiGithub className={`w-6 h-6 ${isDarkMode ? "text-gray-300" : "text-gray-800"}`} />,
     "VS Code": <DiVisualstudio className="w-8 h-8" style={{ color: "#007ACC" }} />,
     POSTMAN: <SiPostman className="w-8 h-8" style={{ color: "#FF6C37" }} />,
     Netlify: <SiNetlify className="w-6 h-6 text-[#00C7B7]" />,
     Render: <SiRender className="w-6 h-6 text-[#46E3B7]" />,
+    Vercel: <IoLogoVercel  className="w-6 h-6 text-[#000806]" />,
     Bootstrap: <SiBootstrap className="w-6 h-6 text-[#7952B3]" />,
     MUI: <SiMui className="w-6 h-6 text-[#007FFF]" />,
     JWT: <SiJson className="w-6 h-6 text-yellow-500" />,
@@ -54,11 +57,13 @@ const Skill = ({isDarkMode,toggleDarkMode}) => {
     { name: "Node.js", category: "backend" },
     { name: "Express", category: "backend" },
     { name: "MongoDB", category: "backend" },
+    { name: "Mongoose", category: "backend" },
     { name: "Git/GitHub", category: "tools" },
     { name: "VS Code", category: "tools" },
     { name: "POSTMAN", category: "tools" },
     { name: "Netlify", category: "tools" },
     { name: "Render", category: "tools" },
+    { name: "Vercel", category: "tools" },
     { name: "MUI", category: "frontend" },
     { name: "Bootstrap", category: "frontend" },
     { name: "Next.js", category: "frontend" },
@@ -199,7 +204,7 @@ const Skill = ({isDarkMode,toggleDarkMode}) => {
             <h3 className="font-bold text-lg group-hover:text-primary transition-colors mb-2">
               {skill.name}
             </h3>
-            <span
+            {/* <span
             className={`px-3 py-1 text-xs font-medium  rounded-full capitalize 
               ${
                 skill.category === "frontend"
@@ -210,7 +215,7 @@ const Skill = ({isDarkMode,toggleDarkMode}) => {
               }`}
           >
             {skill.category}
-          </span>
+          </span> */}
 
           </div>
         </div>
